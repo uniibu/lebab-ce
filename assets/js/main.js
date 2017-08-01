@@ -1,1 +1,100 @@
-'use strict';$(document).ready(function(){function b(){function f(){var t=[];return $('.lb-optionsbox input:checked').each(function(u,w){t.push($(w).siblings('.custom-control-description').text())}),t}function g(){var t=document.createElement('script');t.src='https://unpkg.com/babili-standalone@0.0.10/babili.min.js',t.onload=m,document.body.appendChild(t)}function j(t){var u=t||q.getValue();try{var w=f(),x=lebab.transform(u,w);x=lebab.transform(x.code,w),d&&(x.code=k(x.code)),c&&(x.code=l(x.code)),r.setValue(x.code)}catch(y){return!0}}function k(t){return window.Babel?Babel.transform(t,{presets:['es2015']}).code:t}function l(t){return window.Babili?Babili.transform(t).code:t}function m(){$('.cm-topminify').show(),$('.cm-topminify-es2015').show(),$('.lb-checkbox-es2015').on('click',function(){$(this).toggleClass('checked'),d=!!$(this).hasClass('checked'),j()}),$('.lb-checkbox').on('click',function(){$(this).toggleClass('checked'),c=!!$(this).hasClass('checked'),j()})}var o=$('#lb-usercode');o.val('\n\'use strict\';\n\n// Let/const\nvar name = \'Bob\', time = \'yesterday\';\ntime = \'today\';\n\n// Template string\nconsole.log(\'Hello \' + name + \', how are you \' + time + \'?\');\n\nvar bob = {\n  // Object shorthand\n  name: name,\n  // Object method\n  sayMyName: function () {\n    console.log(this.name);\n  }\n};\n\n// Classes\nvar SkinnedMesh = function SkinnedMesh() {\n};\n\nSkinnedMesh.prototype.update = function (camera) {\n  camera = camera || createCamera();\n  this.camera = camera;\n};\n\nObject.defineProperty(SkinnedMesh.prototype, \'name\', {\n  set: function (geometry) {\n    this.geometry = geometry;\n  },\n  get: function () {\n    return this.geometry;\n  }\n});\n\n// Commonjs\nvar lebab = require(\'lebab\');\nmodule.exports = SkinnedMesh;\n\n// Arrow functions\nvar render = function () {\n  // ...\n  requestAnimationFrame(render);\n};\n\n// Arrow async functions\nvar renderAsync = async function () {\n  // ...\n  await requestAnimationFrame(render);\n};\n    '.trim());var p=document.getElementById('lb-code'),q=CodeMirror.fromTextArea(o.get(0),{lineNumbers:!0,theme:'panda-syntax',lineWrapping:!0,mode:'javascript',showCursorWhenSelecting:!0}),r=CodeMirror.fromTextArea(p,{lineNumbers:!0,theme:'panda-syntax',lineWrapping:!0,mode:'javascript',readOnly:!0});q.on('change',function(t){j(t.doc.getValue())}),$('.lb-optionsbox').on('click',function(t){var u=$(t.currentTarget);$(t.target).blur();var w=u.find('input');return w.prop('checked',!w.prop('checked')),j(),!1}),function(){var t=document.createElement('script');t.src='https://unpkg.com/babel-standalone@6.25.0/babel.min.js',t.onload=g,document.body.appendChild(t)}(),j()}var c=!1,d=!1;(function(){$.get('https://umdfied.herokuapp.com/umdfied/lebab/latest',function(f){if(!0===f.success){$('#lb-ver').prop('src','https://img.shields.io/badge/lebab-'+f.message.semver+'-brightgreen.svg');var g=document.createElement('script');g.src=f.message.url,g.onload=b,document.body.appendChild(g)}},'json')})()});
+var lb_usercode = $('#lb-usercode');
+var lb_code = document.getElementById('lb-code');
+var browser = false;
+var minified = false;
+var lb_usrtxt;
+var lb_txt;
+if (typeof (Worker) !== 'undefined') {
+  if (typeof (worker) === 'undefined') {
+    var worker = new Worker('assets/js/worker.js');
+  }
+  worker.addEventListener('message', e => {
+    var data = e.data;
+    console.log(data);
+    switch (data.cmd) {
+      case 'lebab':
+        $('#lb-ver').prop('src', `https://img.shields.io/badge/lebab-${data.semver}-brightgreen.svg`);
+        start();
+        break;
+      case 'defaultCode':
+        initiate(data.code);
+        transform();
+        break;
+      case 'transformed':
+        lb_txt.setValue(data.code);
+        break;
+    }
+  }, false);
+} else {
+  var sc = document.createElement('script');
+  sc.src = 'assets/js/main-fallback.js';
+  document.body.appendChild(sc);
+}
+function prepare() {
+  worker.postMessage({'cmd': 'prepare', 'msg': ''});
+}
+function start() {
+  worker.postMessage({'cmd': 'start', 'msg': ''});
+}
+function getOpts() {
+  var opts = [];
+  $('.lb-optionsbox input:checked').each((i, v) => {
+    opts.push($(v).siblings('.custom-control-description').text());
+  });
+  return opts;
+}
+function transform(str) {
+  var lb_toTransform = str || lb_usrtxt.getValue();
+  var opts = getOpts();
+  worker.postMessage({'cmd': 'transform', 'msg': {'code': lb_toTransform, 'opts': opts, browser, minified}});
+}
+function initiate(c) {
+  lb_usercode.val(c.trim());
+  lb_usrtxt = CodeMirror.fromTextArea(lb_usercode.get(0), {
+    lineNumbers: true,
+    theme: 'panda-syntax',
+    lineWrapping: true,
+    mode: 'javascript',
+    showCursorWhenSelecting: true
+
+  });
+  lb_txt = CodeMirror.fromTextArea(lb_code, {
+    lineNumbers: true,
+    theme: 'panda-syntax',
+    lineWrapping: true,
+    mode: 'javascript',
+    readOnly: true
+  });
+  $('.lb-optionsbox').on('click', e => {
+    var $target = $(e.currentTarget);
+    $(e.target).blur();
+    var inp = $target.find('input');
+    inp.prop('checked', !inp.prop('checked'));
+    transform();
+    return false;
+  });
+  $('.cm-topminify').show();
+  $('.cm-topminify-es2015').show();
+  $('.lb-checkbox-es2015').on('click', function() {
+    $(this).toggleClass('checked');
+    if ($(this).hasClass('checked')) {
+      browser = true;
+    } else {
+      browser = false;
+    }
+    transform();
+  });
+  $('.lb-checkbox').on('click', function() {
+    $(this).toggleClass('checked');
+    if ($(this).hasClass('checked')) {
+      minified = true;
+    } else {
+      minified = false;
+    }
+    transform();
+  });
+  lb_usrtxt.on('change', object => {
+    transform(object.doc.getValue());
+  });
+}
+prepare();
