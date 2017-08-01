@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Lebab- Community Editor</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/css/codemirror.css">
+    <link rel="stylesheet" href="assets/css/dracula-theme.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse bg-inverse fixed-top lb-nav" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Lebab
+                <span class="text-muted small">Community Editor</span>
+            </a>
+            <span class="navbar-text float-right">
+                <iframe src="https://ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true" style="border:0; background-color:transparent"
+                    width="95" height="20"></iframe>
+            </span>
+        </div>
+    </nav>
+    <a href="https://github.com/you">
+        <img style="position: absolute; top: 0; right: 0; border: 0;z-index: 9999;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+            alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+    </a>
+    <div class="jumbotron lb-container">
+        <div class="container-fluid lb-cointainer-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="cm-topbar">
+                        <div class="cm-topone"></div>
+                        <div class="cm-toptwo"></div>
+                        <div class="cm-topthree"></div>
+                        <div class="cm-topminify">
+                            <div class="lb-checkbox">
+                                <div class="lb-indicator">
+                                    <p class="text-gray-dark">Minify(babili)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cm-topminify-es2015">
+                            <div class="lb-checkbox-es2015">
+                                <div class="lb-indicator">
+                                    <p class="text-gray-dark">Transpile(babel)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown lb-drop">
+                            <a href="https://github.com/lebab/lebab" target="_blank">
+                                <img src="" id="lb-ver">
+                            </a>
+                            <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Options
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right lb-options" aria-labelledby="dropdownMenuButton">
+                                <h6 class="dropdown-header">Safe Transforms</h6>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">arrow</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">for-of</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">for-each</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">arg-rest</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">obj-method</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">obj-shorthand</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">no-strict</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">exponent</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">multi-var</span>
+                                    </label>
+                                </div>
+                                <h6 class="dropdown-header">Unsafe transforms</h6>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">let</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">class</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">commonjs</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">template</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">default-param</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">destruct-param</span>
+                                    </label>
+                                </div>
+                                <div class="lb-optionsbox">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" checked>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">includes</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <textarea autocomplete="off" id="lb-usercode" class="lb-ta"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <div class="cm-topbar">
+                        <div class="cm-topone"></div>
+                        <div class="cm-toptwo"></div>
+                        <div class="cm-topthree"></div>
+
+                    </div>
+                    <textarea autocomplete="off" id="lb-code" class="lb-ta"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/tether.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/codemirror.js"></script>
+    <script src="assets/js/vendor/cm-js.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

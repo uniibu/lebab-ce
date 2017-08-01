@@ -1,0 +1,137 @@
+/* latin-ext */
+
+@font-face {
+ font-family: 'Raleway';
+ font-style: normal;
+ font-weight: 400;
+ src: local('Raleway'), local('Raleway-Regular'), url('../fonts/railway-latin-ext.woff2') format('woff2');
+ unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* latin */
+
+@font-face {
+ font-family: 'Raleway';
+ font-style: normal;
+ font-weight: 400;
+ src: local('Raleway'), local('Raleway-Regular'), url('../fonts/railway-latin.woff2') format('woff2');
+ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+body {
+ font-family: 'Raleway', sans-serif;
+}
+
+.lb-nav {
+ border-bottom: 5px solid #ccb100;
+ min-height: 60px;
+ margin-bottom: 0;
+ max-height: 62px;
+}
+
+.navbar-inverse .navbar-brand {
+ color: #f0db4f;
+ font-size: 18px;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+ color: #f5eaa6;
+}
+
+.custom-control-indicator {
+ background-color: #59A9C2;
+ height: 14px;
+ width: 14px;
+}
+
+.custom-control-description {
+ font-size: 16px;
+}
+
+.custom-control {
+ padding-left: 20px;
+}
+
+.lb-options {
+ position: absolute;
+}
+
+.lb-drop {
+ text-align: right;
+ float: right;
+ padding: 6px;
+ padding-right: 20px;
+}
+
+.lb-drop a:focus,
+.lb-drop a:hover {
+ text-decoration: none;
+}
+
+.lb-options .lb-optionsbox {
+ padding-left: 10px;
+}
+
+.lb-container {
+ height: 100vh;
+ margin: 0;
+}
+
+.lb-cointainer-fluid {
+ padding-top: 30px;
+}
+
+.lb-ta {
+ display: none;
+}
+
+.lb-checkbox.checked .lb-indicator,
+.lb-checkbox-es2015.checked .lb-indicator {
+ background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/></svg>");
+ background-size: 80%;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+
+.lb-checkbox .lb-indicator,
+.lb-checkbox-es2015 .lb-indicator {
+ color: #fff;
+ background-color: #62a8e6;
+ height: 12px;
+ width: 12px;
+}
+
+.cm-topminify {
+ left: 76px;
+ height: 12px;
+ width: 12px;
+ border-radius: 6px;
+ position: absolute;
+ top: 14px;
+ display: none;
+}
+
+.cm-topminify-es2015 {
+ left: 190px;
+ height: 12px;
+ width: 12px;
+ border-radius: 6px;
+ position: absolute;
+ top: 14px;
+ display: none;
+}
+
+.cm-topminify p,
+.cm-topminify-es2015 p {
+ padding-left: 20px;
+ font-size: 14px;
+ line-height: 1;
+}
+
+.cm-topminify:hover,
+.cm-topminify-es2015:hover {
+ cursor: pointer;
+ text-align: right;
+}
