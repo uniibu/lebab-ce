@@ -10,7 +10,6 @@ if (typeof (Worker) !== 'undefined') {
   }
   worker.addEventListener('message', e => {
     var data = e.data;
-    console.log(data);
     switch (data.cmd) {
       case 'lebab':
         $('#lb-ver').prop('src', `https://img.shields.io/badge/lebab-${data.semver}-brightgreen.svg`);
