@@ -20,8 +20,7 @@ self.addEventListener('message', e => {
 
 function transform(code, opts, browser, min) {
   try {
-    var code = lebab.transform(code, opts);
-    code = lebab.transform(code.code, opts);
+    var code = lebab.transform(code, opts);    
     if (browser) {
       code.code = transpile(code.code);
     }
