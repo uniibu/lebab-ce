@@ -196,6 +196,13 @@
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/vendor/codemirror.js"></script>
     <script src="assets/js/vendor/cm-js.js"></script>
+    <script>
+        // show maintenance modal. TODO: change to a better and dynamic way of showing maintenance.
+        const maintenance = true; 
+        if(maintenance){
+            $('#maintenance').modal('show');
+        }
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 
