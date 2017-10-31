@@ -39,6 +39,7 @@ function minify(inp) {
   return Babili.transform(inp).code;
 }
 function loadLebab(cb) {
+  /** changed to static till issue with heroku is fixed 
   const myReq = new Request('https://umdfied.herokuapp.com/umdfied/lebab/latest');
   fetch(myReq)
     .then(response => {
@@ -50,6 +51,9 @@ function loadLebab(cb) {
         }
       });
     });
+  */
+  cb('2.7.7');
+  importScripts('https://cdn.rawgit.com/umdfied/a1781297dcfb57ca176551b44757d545/raw/9fda6d14d5a7eb980df21bcd8c632bdacedcd1a9/lebab.min.js');
 }
 function defaultCode() {
   const defaultCode = `
