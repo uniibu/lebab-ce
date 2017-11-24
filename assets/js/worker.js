@@ -1,6 +1,7 @@
 importScripts('https://unpkg.com/babel-standalone@6.25.0/babel.min.js', 'https://unpkg.com/babili-standalone@0.0.10/babili.min.js');
 self.addEventListener('message', e => {
   const data = e.data;
+  let code;
   switch (data.cmd) {
     case 'prepare':
       loadLebab(ver => {
@@ -8,11 +9,11 @@ self.addEventListener('message', e => {
       });
       break;
     case 'start':
-      var code = defaultCode();
+      code = defaultCode();
       self.postMessage({cmd: 'defaultCode', code});
       break;
     case 'transform':
-      var code = transform(data.msg.code, data.msg.opts, data.msg.browser, data.msg.minified);
+      code = transform(data.msg.code, data.msg.opts, data.msg.browser, data.msg.minified);
       self.postMessage({cmd: 'transformed', code});
       break;
   }
@@ -39,7 +40,6 @@ function minify(inp) {
   return Babili.transform(inp).code;
 }
 function loadLebab(cb) {
-  /** changed to static till issue with heroku is fixed 
   const myReq = new Request('https://umdfied.herokuapp.com/umdfied/lebab/latest');
   fetch(myReq)
     .then(response => {
@@ -50,10 +50,7 @@ function loadLebab(cb) {
           importScripts(message.url);
         }
       });
-    });
-  */
-  cb('2.7.7');
-  importScripts('https://cdn.rawgit.com/umdfied/a1781297dcfb57ca176551b44757d545/raw/9fda6d14d5a7eb980df21bcd8c632bdacedcd1a9/lebab.min.js');
+    }); 
 }
 function defaultCode() {
   const defaultCode = `
