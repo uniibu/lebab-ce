@@ -32,10 +32,10 @@
     </b-row>
 </template>
 <script>
-import lebab from 'lebab'
+import lebab from 'lebab';
 export default {
-    data() {
-        let code = `var Employee = function Employee() {
+  data () {
+    let code = `var Employee = function Employee() {
   this.alive = true;
 };
 
@@ -56,74 +56,78 @@ Object.defineProperty(Employee.prototype, 'name', {
     return this.firstName + ' ' + this.lastName;
   }
 });`;
-let newcode = code;
-let lebabOptions = ['let','arrow'];
-        return {
-            code,
-            newcode,
-            lebabOptions,
-            cmOption: {
-                tabSize: 4,
-                foldGutter: true,
-                styleActiveLine: true,
-                lineNumbers: true,
-                line: true,
-                matchBrackets: true,
-                mode: 'text/javascript',
-                theme: 'panda-syntax',
-                extraKeys: {
-                    F11(cm) {
-                        cm.setOption('fullScreen', !cm.getOption('fullScreen'));
-                    },
-                    Esc(cm) {
-                        if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
-                    }
-                }
-            },
-            cmOption2: {
-                tabSize: 4,
-                foldGutter: true,
-                styleActiveLine: true,
-                lineNumbers: true,
-                line: true,
-                matchBrackets: true,
-                mode: 'text/javascript',
-                theme: 'panda-syntax',
-                readOnly: true,
-                extraKeys: {
-                    F11(cm) {
-                        cm.setOption('fullScreen', !cm.getOption('fullScreen'));
-                    },
-                    Esc(cm) {
-                        if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
-                    }
-                }
-            }
-        };
-    },
-    methods: {
-        lebabTransform(oldcode){
-            const {code, warnings} = lebab.transform(oldcode, this.lebabOptions)
-            this.newcode = code;
-        },
-        onCmCursorActivity(codemirror) {
-            console.log('onCmCursorActivity', codemirror);
-        },
-        onCmReady(codemirror) {
-            console.log('onCmReady', codemirror);
-            this.lebabTransform(this.code) 
-        },
-        onCmFocus(codemirror) {
-            console.log('onCmFocus', codemirror);
-        },
-        onCmBlur(codemirror) {
-            console.log('onCmBlur', codemirror);
-        },
-        onCmChange(newCode){
-            console.log('onCmChange')
-            this.lebabTransform(newCode) 
-            
+let newcode = ''
+    let lebabOptions = ['let', 'arrow'];
+    return {
+      code,
+      newcode,
+      lebabOptions,
+      cmOption: {
+        tabSize: 4,
+        foldGutter: true,
+        styleActiveLine: true,
+        lineNumbers: true,
+        line: true,
+        matchBrackets: true,
+        mode: 'text/javascript',
+        theme: 'panda-syntax',
+        extraKeys: {
+          F11 (cm) {
+            cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+          },
+          Esc (cm) {
+            if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
+          }
         }
+      },
+      cmOption2: {
+        tabSize: 4,
+        foldGutter: true,
+        styleActiveLine: true,
+        lineNumbers: true,
+        line: true,
+        matchBrackets: true,
+        mode: 'text/javascript',
+        theme: 'panda-syntax',
+        readOnly: true,
+        extraKeys: {
+          F11 (cm) {
+            cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+          },
+          Esc (cm) {
+            if (cm.getOption('fullScreen')) cm.setOption('fullScreen', false);
+          }
+        }
+      }
+    };
+  },
+  methods: {
+    lebabTransform (oldcode) {
+      try {
+        const { code, warnings } = lebab.transform(oldcode, this.lebabOptions);
+        this.newcode = code;
+      } catch (err) {
+        console.log('SyntaxError', err.message);
+      }
+    },
+    onCmCursorActivity (codemirror) {
+      console.log('onCmCursorActivity', codemirror);
+    },
+    onCmReady (codemirror) {
+      console.log('onCmReady', codemirror);
+      this.lebabTransform(this.code);
+    },
+    onCmFocus (codemirror) {
+      console.log('onCmFocus', codemirror);
+    },
+    onCmBlur (codemirror) {
+      console.log('onCmBlur', codemirror);
+    },
+    onCmChange (newCode) {
+      console.log('onCmChange');
+      this.lebabTransform(newCode);
     }
+  }
 };
+
 </script>
