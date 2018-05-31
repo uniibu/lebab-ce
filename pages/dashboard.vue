@@ -2,7 +2,6 @@
   <b-jumbotron class="lb-container">
     <b-container fluid class="lb-cointainer-fluid">
         <lebab-editor/>
-        <h1>About page with jQuery and Roboto font</h1>
     </b-container>
   </b-jumbotron>
 </template>

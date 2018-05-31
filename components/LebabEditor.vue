@@ -12,7 +12,8 @@
                       @cursorActivity="onCmCursorActivity"
                       @ready="onCmReady"
                       @focus="onCmFocus"
-                      @blur="onCmBlur">
+                      @blur="onCmBlur"
+                      @input="onCmChange">
                 </codemirror>
             </no-ssr>
         </b-col>
@@ -23,7 +24,7 @@
                 <div class="cm-topthree"></div>
             </div>
             <no-ssr placeholder="Codemirror Loading...">
-             <codemirror v-model="code" 
+             <codemirror v-model="newcode" 
                       :options="cmOption2">
              </codemirror>
              </no-ssr>
@@ -31,9 +32,10 @@
     </b-row>
 </template>
 <script>
+import lebab from 'lebab'
 export default {
     data() {
-        const code = `var Employee = function Employee() {
+        let code = `var Employee = function Employee() {
   this.alive = true;
 };
 
@@ -54,8 +56,12 @@ Object.defineProperty(Employee.prototype, 'name', {
     return this.firstName + ' ' + this.lastName;
   }
 });`;
+let newcode = code;
+let lebabOptions = ['let','arrow'];
         return {
             code,
+            newcode,
+            lebabOptions,
             cmOption: {
                 tabSize: 4,
                 foldGutter: true,
@@ -96,17 +102,27 @@ Object.defineProperty(Employee.prototype, 'name', {
         };
     },
     methods: {
+        lebabTransform(oldcode){
+            const {code, warnings} = lebab.transform(oldcode, this.lebabOptions)
+            this.newcode = code;
+        },
         onCmCursorActivity(codemirror) {
             console.log('onCmCursorActivity', codemirror);
         },
         onCmReady(codemirror) {
             console.log('onCmReady', codemirror);
+            this.lebabTransform(this.code) 
         },
         onCmFocus(codemirror) {
             console.log('onCmFocus', codemirror);
         },
         onCmBlur(codemirror) {
             console.log('onCmBlur', codemirror);
+        },
+        onCmChange(newCode){
+            console.log('onCmChange')
+            this.lebabTransform(newCode) 
+            
         }
     }
 };
