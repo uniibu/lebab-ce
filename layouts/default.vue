@@ -1,6 +1,9 @@
 <template>
   <div>
     <app-navbar/>
+    <no-ssr>
+      <app-loading slot="placeholder" />
+    </no-ssr>
     <nuxt/>
     <app-footer/>
   </div>
@@ -8,10 +11,12 @@
 <script>
 import AppNavbar from '~/components/AppNavbar.vue';
 import AppFooter from '~/components/AppFooter.vue';
+import AppLoading from '~/components/AppLoading.vue'
 export default {
   components: {
     AppNavbar,
-    AppFooter
+    AppFooter,
+    AppLoading
   }
 };
 </script>
