@@ -2,7 +2,7 @@
 <div class="header_section">
   <b-container>
     <h1>Lebab modernizes your JavaScript code!</h1>
-    <b-button size="lg" variant="outline-warning" class="pl-5 pr-5" href="#body_section">Get Started</b-button>
+    <b-button size="lg" variant="outline-warning" class="pl-5 pr-5" to="/dashboard">Get Started</b-button>
     <div class="iframebox">
     <iframe class="iframestar" src="//ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"></iframe>
       </div>

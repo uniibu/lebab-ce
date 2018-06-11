@@ -8,7 +8,7 @@
 	  <b-collapse is-nav id="nav_collapse">
 	    <!-- Right aligned nav items -->
 	    <b-navbar-nav class="ml-auto">
-	      <b-nav-item to="/dashboard">Try it live</b-nav-item>
+	      <b-nav-item to="/">Main</b-nav-item>
 	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce">Lebab</b-nav-item>
 	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce/issues">Issues</b-nav-item>
 	    </b-navbar-nav>
