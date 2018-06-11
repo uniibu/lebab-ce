@@ -8,8 +8,8 @@
                             <div class="cm-toptwo"></div>
                             <div class="cm-topthree"></div>
                         </div>
-                    <no-ssr placeholder="Codemirror Loading...">
-                    <codemirror v-model="lebabCode" 
+                    <no-ssr>
+                    <codemirror class="a" v-model="lebabCode" 
                                 :options="cmOption">
                                 </codemirror>
                     </no-ssr>
@@ -50,12 +50,12 @@ export default {
       cmOption: {
         tabSize: 4,
         foldGutter: true,
-        styleActiveLine: true,
+        styleActiveLine: false,
         lineNumbers: true,
         theme: 'panda-syntax',
         lineWrapping: true,
-        mode: 'javascript',
-        showCursorWhenSelecting: true,
+        mode: 'text/javascript',
+        showCursorWhenSelecting: false,
         readOnly: true
       }
     };

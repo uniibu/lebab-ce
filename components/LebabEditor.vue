@@ -34,7 +34,7 @@
         </div>
       </div>
       <no-ssr>
-        <codemirror v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @input="onCmChange">
+        <codemirror class="mb-4" v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @input="onCmChange">
         </codemirror>
       </no-ssr>
     </b-col>
@@ -46,7 +46,7 @@
       </div>
 
       <no-ssr>
-        <codemirror v-model="newcode" :options="cmOption2">
+        <codemirror class="mb-4" v-model="newcode" :options="cmOption2">
         </codemirror>
       </no-ssr>
     </b-col>

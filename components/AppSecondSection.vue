@@ -12,9 +12,9 @@
                             <div class="cm-toptwo"></div>
                             <div class="cm-topthree"></div>
                         </div>
-                    <no-ssr placeholder="Codemirror Loading...">
-                    <codemirror v-model="defaultCode" 
-                        :options="cmOption">
+                    <no-ssr>
+                    <codemirror class="a" v-model="defaultCode"
+                                :options="cmOption">
                     </codemirror>
                 </no-ssr>
                 </b-col>
@@ -51,15 +51,17 @@ Object.defineProperty(Employee.prototype, 'name', {
             cmOption: {
                 tabSize: 4,
                 foldGutter: true,
-                styleActiveLine: true,
+                styleActiveLine: false,
                 lineNumbers: true,
                 theme: 'panda-syntax',
                 lineWrapping: true,
                 mode: 'text/javascript',
-                showCursorWhenSelecting: true,
+                showCursorWhenSelecting: false,
                 readOnly: true
             }
         };
     }
 };
 </script>
+
+

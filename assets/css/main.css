@@ -34,7 +34,7 @@ body {
 }
 
 .lb-container {
- height: 100vh;
+ min-height: 100vh;
  margin: 0;
  border-bottom: 1px solid #9E9E9E;
  border-radius: 0;

@@ -44,6 +44,10 @@
  top: 14px;
 }
 
+.vue-codemirror.a>.CodeMirror {
+ height: 100%;
+}
+
 .CodeMirror {
  font-size: 16px;
  height: 80vh;
