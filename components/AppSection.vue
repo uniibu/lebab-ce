@@ -4,14 +4,14 @@
     <h1>Lebab modernizes your JavaScript code!</h1>
     <b-button size="lg" variant="outline-warning" class="pl-5 pr-5" href="#body_section">Get Started</b-button>
     <div class="iframebox">
-    <iframe class="iframestar" src="//ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&size=large"></iframe>
+    <iframe class="iframestar" src="//ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"></iframe>
       </div>
   </b-container>
 </div>
 </template>
 <style>
 .header_section {
-  background: #333 url('~/static/big.jpg') 50%;
+  background: #333 url('/static/images/big.jpg') 50%;
   background-size: cover;
   text-align: center;
   padding: 140px 0 80px 0;
