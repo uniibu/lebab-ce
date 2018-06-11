@@ -44,23 +44,15 @@
         <div class="cm-toptwo"></div>
         <div class="cm-topthree"></div>
       </div>
-
       <no-ssr>
         <codemirror class="mb-4" v-model="newcode" :options="cmOption2">
         </codemirror>
       </no-ssr>
     </b-col>
-    <no-ssr>
-      <app-loading slot="placeholder" />
-    </no-ssr>
   </b-row>
 </template>
 <script>
-  import AppLoading from '~/components/AppLoading.vue';
   export default {
-  	components: {
-      AppLoading
-    },
     data() {
       let code =
         `'use strict';
