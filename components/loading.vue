@@ -39,8 +39,8 @@ export default {
 }
 .sk-folding-cube {
   margin: 20px auto;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   position: relative;
   -webkit-transform: rotateZ(45deg);
           transform: rotateZ(45deg);
@@ -63,7 +63,8 @@ export default {
   width: 100%;
   height: 100%;
   border: 1px solid #f5da55;
-  background-color: #333;
+  background-color: #323330;
+  border-top-left-radius: 5px;
   -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
           animation: sk-foldCubeAngle 2.4s infinite linear both;
   -webkit-transform-origin: 100% 100%;
