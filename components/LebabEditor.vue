@@ -34,7 +34,7 @@
         </div>
       </div>
       <no-ssr>
-        <codemirror v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @focus="onCmFocus" @blur="onCmBlur" @input="onCmChange">
+        <codemirror v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @input="onCmChange">
         </codemirror>
       </no-ssr>
     </b-col>
@@ -225,17 +225,10 @@ module.exports = Person;`;
         }
       },
       onCmReady (codemirror) {
-      console.log('onCmReady', codemirror);
       this.lebabTransform(this.code);
       },
       onCmCursorActivity(codemirror) {
-        console.log('cursor', codemirror);
-      },
-      onCmFocus(codemirror) {
-        console.log('Focus', codemirror);
-      },
-      onCmBlur(codemirror) {
-        console.log('Blur', codemirror);
+      this.onCmChange(this.code);
       },
       onCmChange(code) {
         this.lebabTransform(code);
