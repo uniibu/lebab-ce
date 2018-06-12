@@ -8,11 +8,11 @@
                             <div class="cm-toptwo"></div>
                             <div class="cm-topthree"></div>
                         </div>
-                    <no-ssr>
+                  
                     <codemirror class="a" v-model="lebabCode" 
                                 :options="cmOption">
                                 </codemirror>
-                    </no-ssr>
+                   
                 </b-col>
                 <b-col md="6">
                     <h1>Lebab it!</h1>
