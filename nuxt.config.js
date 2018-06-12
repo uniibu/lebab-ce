@@ -1,4 +1,7 @@
-module.exports = {
+import path from 'path'
+
+export default {
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -16,16 +19,43 @@ module.exports = {
       { src: 'https://cdn.rawgit.com/umdfied/a1781297dcfb57ca176551b44757d545/raw/9fda6d14d5a7eb980df21bcd8c632bdacedcd1a9/lebab.min.js' }
     ]
   },
+
+  css: ['codemirror/lib/codemirror.css', '~/assets/scss/style.scss'],
+
+  modules: [
+    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabVer'
+  ],
+
+  plugins: [{ src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }],
+
   /*
    ** Customize the progress bar color
    */
-  loading: '~/components/loading.vue',
+  loading: false,
+  loadingIndicator: {
+    name: 'cube-grid',
+    color: '#3B8070',
+    background: 'white'
+  },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file) => {
+        return ['js'].includes(file)
+      }
+    }
+  },
+  dev: process.env.NODE_ENV === 'development',
   /*
    ** Build configuration
    */
-  dev: true,
   build: {
-    maxChunkSize: 244000,
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        name: true
+      }
+    },
+    extractCSS: true,
     generate: {
       workers: 4,
       workerConcurrency: 500,
@@ -36,11 +66,11 @@ module.exports = {
         }
       }
     },
-    extractCSS: true,
     /*
      ** Run ESLint on save
      */
-    extend (config, { isDev, isClient, isServer }) {
+    extend (config, { isDev, isClient }) {
+      console.log(config.plugins)
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -49,20 +79,35 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-      if (!isDev) {
-        config.output.publicPath = './_nuxt/'
-      }
+      config.module.rules.push({
+        test: /\.inline$/,
+        use: [{
+          'loader': 'vue-style-loader',
+          'options': {
+            'sourceMap': false
+          }
+        },
+        {
+          'loader': 'css-loader',
+          'options': {
+            'sourceMap': false,
+            'minimize': true,
+            'importLoaders': 1,
+            'alias': {
+              '/assets': path.resolve(__dirname, 'assets'),
+              '/static': path.resolve(__dirname, 'static')
+            }
+          }
+        },
+        {
+          'loader': 'postcss-loader',
+          'options': {
+            'sourceMap': false,
+            'useConfigFile': false
+          }
+        }
+        ]
+      })
     }
-  },
-  css: [
-    '~/assets/scss/style.scss',
-    'codemirror/lib/codemirror.css',
-    'codemirror/addon/merge/merge.css',
-    '~/assets/css/dracula-theme.css',
-    '~/assets/css/main.css'
-  ],
-  modules: [
-    'bootstrap-vue/nuxt', '~/modules/lebabVer'
-  ],
-  plugins: [{ src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }]
+  }
 }
