@@ -17,7 +17,7 @@
 	</b-navbar>
 </template>
 
-<style>
+<style scoped lang="inline">
 .navbar {
 	border-bottom: 2px solid #323330;
 }
@@ -31,7 +31,7 @@
 }
 
 .logo {
-	background: url('/static/images/lebab-logo.png') no-repeat center;
+	background: url('~/assets/images/lebab-logo.png') no-repeat center;
 	background-size: auto 46px;
 	width: 60px;
 	height: 50px;

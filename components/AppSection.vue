@@ -2,16 +2,17 @@
 <div class="header_section">
   <b-container>
     <h1>Lebab modernizes your JavaScript code!</h1>
-    <b-button size="lg" variant="outline-warning" class="pl-5 pr-5" to="/dashboard">Get Started</b-button>
+    <b-btn size="lg" variant="outline-warning" class="pl-5 pr-5" to="/dashboard">Get Started</b-btn>
     <div class="iframebox">
-    <iframe class="iframestar" src="//ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"></iframe>
-      </div>
+    <iframe class="iframestar" src="https://ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"></iframe>
+    </div>
   </b-container>
 </div>
 </template>
-<style>
+
+<style scoped lang="inline">
 .header_section {
-  background: #333 url('/static/images/big.jpg') 50%;
+  background: #333 url('~/assets/images/big.jpg') 50%;
   background-size: cover;
   text-align: center;
   padding: 140px 0 80px 0;

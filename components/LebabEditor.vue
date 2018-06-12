@@ -33,10 +33,8 @@
           </b-dropdown>
         </div>
       </div>
-      <no-ssr>
         <codemirror class="mb-4" v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @input="onCmChange">
         </codemirror>
-      </no-ssr>
     </b-col>
     <b-col md="6">
       <div class="cm-topbar">
@@ -44,10 +42,10 @@
         <div class="cm-toptwo"></div>
         <div class="cm-topthree"></div>
       </div>
-      <no-ssr>
+     
         <codemirror class="mb-4" v-model="newcode" :options="cmOption2">
         </codemirror>
-      </no-ssr>
+     
     </b-col>
   </b-row>
 </template>
