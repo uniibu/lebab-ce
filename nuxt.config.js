@@ -29,7 +29,6 @@ module.exports = {
   build: {
     extractCSS: true,
     optimization: conf.build.optimization,
-    publicPath: conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/',
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -44,6 +43,7 @@ module.exports = {
         config.performance.maxAssetSize = 500000;
         config.module.rules.push(conf.build.extraRules);
       }
+      config.output.publicPath = conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/';
     }
   }
 };
