@@ -10,7 +10,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: 'Lebab Modernizing Javascript Code' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' }],
     script: [
       { src: 'https://unpkg.com/babel-standalone/babel.min.js' }
     ]

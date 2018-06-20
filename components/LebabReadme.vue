@@ -11,7 +11,7 @@ export default {
   created(){
     this.$axios.$get('https://raw.githubusercontent.com/lebab/lebab/master/README.md')
     .then((res) => {
-      console.log(res)
+      res = res.replace(/http:/g,'https:');
       this.model = res
     })
   }
