@@ -1,3 +1,8 @@
+/**
+ * @license
+ * Lodash lodash.com/license | Underscore.js 1.8.3 underscorejs.org/LICENSE
+ */
+
 /*!
  * Vue.js v2.5.16
  * (c) 2014-2018 Evan You
@@ -73,11 +78,6 @@ object-assign
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- */
-
-/**
- * @license
- * Lodash lodash.com/license | Underscore.js 1.8.3 underscorejs.org/LICENSE
  */
 
 /*! https://mths.be/punycode v1.4.1 by @mathias */
