@@ -20,7 +20,7 @@ $ npm install # Or yarn install
 # serve with hot reload at localhost:3000
 $ npm run dev # Or yarn dev
 
-# build dist folder for production
+# build docs folder for production
 $ npm run generate # Or yarn generate
 
 ```
