@@ -6,10 +6,11 @@
   </b-jumbotron>
 </template>
 <script>
-	import LebabEditor from '~/components/LebabEditor.vue'
-	export default {
-		components: {
-			LebabEditor
-		}
+import LebabEditor from '~/components/LebabEditor.vue';
+export default {
+	layout: 'default',
+	components: {
+		LebabEditor
 	}
+};
 </script>

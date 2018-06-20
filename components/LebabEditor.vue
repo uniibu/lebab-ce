@@ -1,5 +1,5 @@
 <template>
-	<b-row>
+  <b-row>
     <b-col md="6">
       <div class="cm-topbar">
         <div class="cm-topone"></div>
@@ -50,10 +50,9 @@
   </b-row>
 </template>
 <script>
-  export default {
-    data() {
-      let code =
-        `'use strict';
+export default {
+  data() {
+    let code = `'use strict';
 var _ = require('lodash');
 
 function Person(cfg) {
@@ -77,193 +76,198 @@ Person.prototype.greetWithAllTitles = function() {
 };
 
 module.exports = Person;`;
-      let newcode = ''
-      return {
-        lebabSemver: `https://img.shields.io/badge/lebab-${process.env.lebab}-brightgreen.svg`,
-        code,
-        newcode,
-        minified: false,
-        transpiled: false,
-        lebabOptions: [
-          'arrow',
-          'for-of',
-          'for-each',
-          'arg-rest',
-          'obj-method',
-          'obj-shorthand',
-          'no-strict',
-          'exponent',
-          'multi-var',
-          'let',
-          'class',
-          'commonjs',
-          'template',
-          'default-param',
-          'destruct-param',
-          'includes'
-        ],
-        OptionsSafe: [{
-            text: 'arrow',
-            value: 'arrow'
-          },
-          {
-            text: 'for-of',
-            value: 'for-of'
-          },
-          {
-            text: 'for-each',
-            value: 'for-each'
-          },
-          {
-            text: 'arg-rest',
-            value: 'arg-rest'
-          },
-          {
-            text: 'obj-method',
-            value: 'obj-method'
-          },
-          {
-            text: 'obj-shorthand',
-            value: 'obj-shorthand'
-          },
-          {
-            text: 'no-strict',
-            value: 'no-strict'
-          },
-          {
-            text: 'exponent',
-            value: 'exponent'
-          },
-          {
-            text: 'multi-var',
-            value: 'multi-var'
-          }
-        ],
-        OptionsUnsafe: [{
-            text: 'let',
-            value: 'let'
-          },
-          {
-            text: 'class',
-            value: 'class'
-          },
-          {
-            text: 'commonjs',
-            value: 'commonjs'
-          },
-          {
-            text: 'template',
-            value: 'template'
-          },
-          {
-            text: 'default-param',
-            value: 'default-param'
-          },
-          {
-            text: 'destruct-param',
-            value: 'destruct-param'
-          },
-          {
-            text: 'includes',
-            value: 'includes'
-          }
-        ],
-        cmOption: {
-          tabSize: 4,
-          styleActiveLine: true,
-          lineNumbers: true,
-          line: true,
-          foldGutter: true,
-          styleSelectedText: true,
-          lineWrapping: true,
-          mode: 'text/javascript',
-          keyMap: "sublime",
-          matchBrackets: true,
-          showCursorWhenSelecting: true,
-          theme: 'panda-syntax',
-          extraKeys: {
-            "Ctrl": "autocomplete"
-          },
-          hintOptions: {
-            completeSingle: false
-          }
+    let newcode = '';
+    return {
+      lebabSemver: `https://img.shields.io/badge/lebab-${process.env.lebab}-brightgreen.svg`,
+      code,
+      newcode,
+      minified: false,
+      transpiled: false,
+      lebabOptions: [
+        'arrow',
+        'for-of',
+        'for-each',
+        'arg-rest',
+        'obj-method',
+        'obj-shorthand',
+        'no-strict',
+        'exponent',
+        'multi-var',
+        'let',
+        'class',
+        'commonjs',
+        'template',
+        'default-param',
+        'destruct-param',
+        'includes'
+      ],
+      OptionsSafe: [
+        {
+          text: 'arrow',
+          value: 'arrow'
         },
-        cmOption2: {
-          tabSize: 4,
-          foldGutter: true,
-          styleActiveLine: true,
-          lineNumbers: true,
-          line: true,
-          lineWrapping: true,
-          matchBrackets: true,
-          mode: 'text/javascript',
-          theme: 'panda-syntax',
-          readOnly: true,
+        {
+          text: 'for-of',
+          value: 'for-of'
+        },
+        {
+          text: 'for-each',
+          value: 'for-each'
+        },
+        {
+          text: 'arg-rest',
+          value: 'arg-rest'
+        },
+        {
+          text: 'obj-method',
+          value: 'obj-method'
+        },
+        {
+          text: 'obj-shorthand',
+          value: 'obj-shorthand'
+        },
+        {
+          text: 'no-strict',
+          value: 'no-strict'
+        },
+        {
+          text: 'exponent',
+          value: 'exponent'
+        },
+        {
+          text: 'multi-var',
+          value: 'multi-var'
         }
-      };
+      ],
+      OptionsUnsafe: [
+        {
+          text: 'let',
+          value: 'let'
+        },
+        {
+          text: 'class',
+          value: 'class'
+        },
+        {
+          text: 'commonjs',
+          value: 'commonjs'
+        },
+        {
+          text: 'template',
+          value: 'template'
+        },
+        {
+          text: 'default-param',
+          value: 'default-param'
+        },
+        {
+          text: 'destruct-param',
+          value: 'destruct-param'
+        },
+        {
+          text: 'includes',
+          value: 'includes'
+        }
+      ],
+      cmOption: {
+        tabSize: 4,
+        lineNumbers: true,
+        line: true,
+        foldGutter: true,
+        styleSelectedText: true,
+        lineWrapping: true,
+        mode: 'text/javascript',
+        keyMap: 'sublime',
+        matchBrackets: true,
+        showCursorWhenSelecting: true,
+        theme: 'panda-syntax',
+        extraKeys: {
+          Ctrl: 'autocomplete'
+        },
+        hintOptions: {
+          completeSingle: false
+        }
+      },
+      cmOption2: {
+        tabSize: 4,
+        lineNumbers: true,
+        line: true,
+        foldGutter: true,
+        lineWrapping: true,
+        matchBrackets: true,
+        mode: 'text/javascript',
+        theme: 'panda-syntax',
+        readOnly: true
+      }
+    };
+  },
+  methods: {
+    lebabTransform(oldcode) {
+      try {
+        const { code, warnings } = this.$lebab.transform(oldcode, this.lebabOptions);
+        this.newcode = code;
+      } catch (err) {
+        console.log('SyntaxError', err.message);
+      }
     },
-    methods: {
-      lebabTransform(oldcode) {
-        try {
-          const {
-            code,
-            warnings
-          } = lebab.transform(oldcode, this.lebabOptions);
-          this.newcode = code;
-        } catch (err) {
-          console.log('SyntaxError', err.message);
-        }
-      },
-      onCmReady (codemirror) {
+    onCmReady(codemirror) {
+      console.log(this.$Babel)
       this.lebabTransform(this.code);
-      },
-      onCmCursorActivity(codemirror) {
+    },
+    onCmCursorActivity() {
+      return this.code;
+    },
+    onCmChange(code) {
+      this.lebabTransform(code);
+      this.transpileCode(this.newcode);
+      this.minifyCode(this.newcode);
+    },
+    onOptChange() {
       this.onCmChange(this.code);
-      },
-      onCmChange(code) {
-        this.lebabTransform(code);
-        this.transpileCode(this.newcode);
+    },
+    minifyCode(code) {
+      if (this.minified) {
+        this.newcode = Babili.transform(code).code;
+        return true;
+      }
+      return false;
+    },
+    onMinify(minified) {
+      if (!this.minifyCode(this.newcode)) {
+        this.lebabTransform(this.code);
+      }
+      if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
         this.minifyCode(this.newcode);
-      },
-      onOptChange() {
-        this.onCmChange(this.code);
-      },
-      minifyCode(code) {
-        if (this.minified) {
-          this.newcode = Babili.transform(code).code;
-          return true;
-        }
-        return false;
-      },
-      transpileCode(code) {
-        if (this.transpiled) {
-          this.newcode = Babel.transform(code, {
-            presets: ['es2015']
-          }).code;
-          return true;
-        }
-        return false;
-      },
-      onMinify(minified) {
-        if (!this.minifyCode(this.newcode)) {
-          this.lebabTransform(this.code);
-        }
-        if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-          this.minifyCode(this.newcode);
-        }
-        if (!this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-          this.lebabTransform(this.code);
-          this.transpileCode(this.newcode);
-        }
-      },
-      onTranspile(transpiled) {
-        if (!this.transpileCode(this.newcode)) {
-          this.lebabTransform(this.code);
-        }
-        if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-          this.minifyCode(this.newcode);
+      }
+      if (!this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
+        this.lebabTransform(this.code);
+        this.transpileCode(this.newcode);
+      }
+    },
+    transpileCode(code) {
+      if (this.transpiled) {
+        this.newcode = Babel.transform(code, {
+          presets: ['es2015']
+        }).code;
+        return true;
+      }
+      return false;
+    },
+    onTranspile(transpiled) {
+      if (!this.transpileCode(this.newcode)) {
+        this.lebabTransform(this.code);
+      }
+      if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
+        this.minifyCode(this.newcode);
+      }
+    },
+    createWorker(){
+      if (process.browser) {
+          for(let i = 0, len = navigator.hardwareConcurrency || 1; i < len; i++) {
+          this.Babel.push(this.$Babel.createWorker())
         }
       }
     }
-  };
+  }
+};
 </script>

@@ -8,7 +8,7 @@
 	  <b-collapse is-nav id="nav_collapse">
 	    <!-- Right aligned nav items -->
 	    <b-navbar-nav class="ml-auto">
-	      <b-nav-item to="/">Main</b-nav-item>
+	      <b-nav-item to="/editor">Try It Live</b-nav-item>
 	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce">Lebab</b-nav-item>
 	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce/issues">Issues</b-nav-item>
 	    </b-navbar-nav>
@@ -19,19 +19,20 @@
 
 <style scoped lang="inline">
 .navbar {
-	border-bottom: 2px solid #323330;
+	border-bottom: 2px solid #f5da55;
 }
 .navbar-default {
-	background-color: #f5da55;
+	background-color:#323330;
 }
 
 .navbar-default .navbar-nav .nav-link {
-	color: #323330;
-	font-weight: 700;
+	color: #f5da55;
+	font-size: 18px;
+	text-transform: uppercase;
 }
 
 .logo {
-	background: url('~/assets/images/lebab-logo.png') no-repeat center;
+	background: url('~/assets/images/lebab-logogold.png') no-repeat center;
 	background-size: auto 46px;
 	width: 60px;
 	height: 50px;

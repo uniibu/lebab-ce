@@ -1,45 +1,39 @@
 import path from 'path'
-
 export default {
   mode: 'spa',
-  /*
-   ** Headers of the page
-   */
   head: {
-    title: 'lebabnuxt',
+    title: 'Lebab Modernizing Javascript Code',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Lebab Modernizing Javascript Code' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: 'https://unpkg.com/babel-standalone@6.25.0/babel.min.js' },
-      { src: 'https://unpkg.com/babili-standalone@0.0.10/babili.min.js' },
-      { src: 'https://cdn.rawgit.com/umdfied/a1781297dcfb57ca176551b44757d545/raw/9fda6d14d5a7eb980df21bcd8c632bdacedcd1a9/lebab.min.js' }
+      { src: 'https://unpkg.com/babel-standalone@6/babel.min.js' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/babili-standalone/0.0.8/babili.min.js' }
     ]
   },
 
   css: ['codemirror/lib/codemirror.css', '~/assets/scss/style.scss'],
 
   modules: [
-    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabVer'
+    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabVer', '~/modules/lebabModule'
   ],
 
   plugins: [{ src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }],
-
   /*
    ** Customize the progress bar color
    */
   loading: false,
   loadingIndicator: {
     name: 'cube-grid',
-    color: '#3B8070',
+    color: '#323330',
     background: 'white'
   },
   render: {
     bundleRenderer: {
-      shouldPreload: (file) => {
+      shouldPreload: file => {
         return ['js'].includes(file)
       }
     }
@@ -49,20 +43,37 @@ export default {
    ** Build configuration
    */
   build: {
-    optimization: {
-      splitChunks: {
-        chunks: 'all',
-        name: true
-      }
-    },
     extractCSS: true,
+    analyze: true,
     generate: {
       workers: 4,
       workerConcurrency: 500,
       concurrency: 500,
       done ({ duration, errors, workerInfo }) {
         if (errors.length) {
-          console.log(done)
+          console.log('done')
+        }
+      }
+    },
+    filenames: {
+      chunk: '[name].[chunkhash].js'
+    },
+    optimization: {
+      concatenateModules: true,
+      splitChunks: {
+        chunks: 'all',
+        name: true,
+        cacheGroups: {
+          vendor: {
+            test: /node_modules[\\/](vue|vue-loader|vue-router|vuex|vue-meta|core-js|babel-runtime|es6-promise|axios|webpack|setimmediate|timers-browserify|process|regenerator-runtime|cookie|js-cookie|is-buffer|dotprop|codemirror|nuxt\.js)[\\/]/,
+            priority: 10,
+            chunks: 'all'
+          },
+          commons: {
+            test: /node_modules[\\/](lodash|esprima|acorn|lebab)[\\/]/,
+            priority: 10,
+            chunks: 'all'
+          }
         }
       }
     },
@@ -70,7 +81,6 @@ export default {
      ** Run ESLint on save
      */
     extend (config, { isDev, isClient }) {
-      console.log(config.plugins)
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -79,35 +89,39 @@ export default {
           exclude: /(node_modules)/
         })
       }
-      config.module.rules.push({
-        test: /\.inline$/,
-        use: [{
-          'loader': 'vue-style-loader',
-          'options': {
-            'sourceMap': false
-          }
-        },
-        {
-          'loader': 'css-loader',
-          'options': {
-            'sourceMap': false,
-            'minimize': true,
-            'importLoaders': 1,
-            'alias': {
-              '/assets': path.resolve(__dirname, 'assets'),
-              '/static': path.resolve(__dirname, 'static')
+      if (isClient) {
+        config.performance.maxEntrypointSize = 1510000
+        config.performance.maxAssetSize = 500000
+        config.module.rules.push({
+          test: /\.inline$/,
+          use: [{
+            loader: 'vue-style-loader',
+            options: {
+              sourceMap: false
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              minimize: true,
+              importLoaders: 1,
+              alias: {
+                '/assets': path.resolve(__dirname, 'assets'),
+                '/static': path.resolve(__dirname, 'static')
+              }
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: false,
+              useConfigFile: false
             }
           }
-        },
-        {
-          'loader': 'postcss-loader',
-          'options': {
-            'sourceMap': false,
-            'useConfigFile': false
-          }
-        }
-        ]
-      })
+          ]
+        })
+      }
     }
   }
 }
