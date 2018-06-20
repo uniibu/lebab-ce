@@ -23,6 +23,9 @@ module.exports = {
     }
   },
   dev: conf.isDev,
+  generate: {
+    dir: 'docs'
+  },
   build: {
     extractCSS: true,
     optimization: conf.build.optimizationn,
