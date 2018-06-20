@@ -1,13 +1,19 @@
 <template>
-<div class="header_section">
-  <b-container>
-    <h1>Lebab modernizes your JavaScript code!</h1>
-    <b-btn size="lg" variant="outline-warning" class="pl-5 pr-5" to="/dashboard">Get Started</b-btn>
-    <div class="iframebox">
-    <iframe class="iframestar" src="https://ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"></iframe>
-    </div>
-  </b-container>
-</div>
+  <div class="header_section">
+    <b-container>
+      <h1>Lebab modernizes your JavaScript code!</h1>
+      <b-btn 
+        size="lg" 
+        variant="outline-warning" 
+        class="pl-5 pr-5" 
+        to="/readme">Read More</b-btn>
+      <div class="iframebox">
+        <iframe 
+          class="iframestar" 
+          src="https://ghbtns.com/github-btn.html?user=lebab&amp;repo=lebab&amp;type=star&amp;count=true&amp;size=large"/>
+      </div>
+    </b-container>
+  </div>
 </template>
 
 <style scoped lang="inline">

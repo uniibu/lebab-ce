@@ -1,72 +1,31 @@
 <template>
-	<b-navbar class="navbar-default" toggleable="md" type="light" fixed="top">
-	  <b-container>
-	  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+  <b-navbar 
+    class="navbar-default" 
+    toggleable="md" 
+    type="light" 
+    fixed="top">
+    <b-container>
+      <b-navbar-toggle target="nav_collapse"/>
 
-	  <b-navbar-brand class="logo" to="/"></b-navbar-brand>
+      <b-navbar-brand 
+        class="logo" 
+        to="/"/>
 
-	  <b-collapse is-nav id="nav_collapse">
-	    <!-- Right aligned nav items -->
-	    <b-navbar-nav class="ml-auto">
-	      <b-nav-item to="/editor">Try It Live</b-nav-item>
-	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce">Lebab</b-nav-item>
-	      <b-nav-item target="_blank" href="//github.com/uniibu/lebab-ce/issues">Issues</b-nav-item>
-	    </b-navbar-nav>
-	  </b-collapse>
-	</b-container>
-	</b-navbar>
+      <b-collapse 
+        id="nav_collapse" 
+        is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item 
+            to="/editor">Try It Live</b-nav-item>
+          <b-nav-item 
+            target="_blank" 
+            href="//github.com/lebab/lebab">Lebab</b-nav-item>
+          <b-nav-item 
+            target="_blank" 
+            href="//github.com/lebab/lebab/issues">Issues</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-container>
+  </b-navbar>
 </template>
-
-<style scoped lang="inline">
-.navbar {
-	border-bottom: 2px solid #f5da55;
-}
-.navbar-default {
-	background-color:#323330;
-}
-
-.navbar-default .navbar-nav .nav-link {
-	color: #f5da55;
-	font-size: 18px;
-	text-transform: uppercase;
-}
-
-.logo {
-	background: url('~/assets/images/lebab-logogold.png') no-repeat center;
-	background-size: auto 46px;
-	width: 60px;
-	height: 50px;
-}
-
-.logo.navbar-brand {
-	font: 0/0 a;
-	color: transparent;
-	text-shadow: none;
-	background-color: transparent;
-	border: 0;
-}
-
-.navbar-brand {
-	float: left;
-	padding: 15px 15px;
-	font-size: 18px;
-	line-height: 20px;
-	height: 50px;
-}
-
-.navbar-brand:focus,
-.navbar-brand:hover {
-	text-decoration: none;
-}
-
-.navbar-brand > img {
-	display: block;
-}
-
-@media (min-width: 992px) {
-	.navbar > .container .navbar-brand,
-	.navbar > .container-fluid .navbar-brand {
-		margin-left: -15px;
-	}
-}
-</style>

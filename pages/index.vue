@@ -1,9 +1,9 @@
 <template>
-<div>
-  <app-section/>
-  <app-second-section/>
-  <app-third-section/>
-</div>
+  <div>
+    <app-section/>
+    <app-second-section/>
+    <app-third-section/>
+  </div>
 </template>
 
 <script>

@@ -1,17 +1,16 @@
 <template>
   <b-jumbotron class="lb-container">
-    <b-container 
-      fluid 
+    <b-container        
       class="lb-cointainer-fluid">
-      <lebab-editor/>
+      <lebab-readme/>
     </b-container>
   </b-jumbotron>
 </template>
 <script>
-import LebabEditor from '~/components/LebabEditor.vue';
+import LebabReadme from '~/components/LebabReadme.vue';
 export default {
-	components: {
-		LebabEditor
-	}
+  components: {
+    LebabReadme
+  }
 };
 </script>

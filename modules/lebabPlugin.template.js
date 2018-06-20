@@ -1,6 +1,5 @@
-import lebab from 'lebab'
+import lebab from 'lebab';
 export default (ctx, inject) => {
-  ctx.$lebab = lebab
-  console.log(lebab)
-  inject('lebab', lebab)
-}
+  ctx.$lebab = lebab;
+  inject('lebab', lebab);
+};

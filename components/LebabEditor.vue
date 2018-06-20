@@ -2,49 +2,80 @@
   <b-row>
     <b-col md="6">
       <div class="cm-topbar">
-        <div class="cm-topone"></div>
-        <div class="cm-toptwo"></div>
-        <div class="cm-topthree"></div>
+        <div class="cm-topone"/>
+        <div class="cm-toptwo"/>
+        <div class="cm-topthree"/>
         <div class="cm-topminify">
-          <b-form-checkbox id="checkboxminify" v-model="minified" @input="onMinify">
+          <b-form-checkbox 
+            id="checkboxminify" 
+            v-model="minified"
+            @input="toNewCode">
             Minify(babili)
           </b-form-checkbox>
         </div>
         <div class="cm-topminify-es2015">
-          <b-form-checkbox id="checkboxtranspile" v-model="transpiled" @input="onTranspile">
+          <b-form-checkbox 
+            id="checkboxtranspile" 
+            v-model="transpiled" 
+            @input="toNewCode">
             Transpile(babel)
           </b-form-checkbox>
         </div>
         <div class="dropdown lb-drop">
-          <a href="https://github.com/lebab/lebab" target="_blank">
+          <a 
+            href="https://github.com/lebab/lebab" 
+            target="_blank">
             <b-img :src="lebabSemver" />
           </a>
-          <b-dropdown id="ddown-buttons" size="sm" class="mx-1 my-1" text="Options" right>
+          <b-dropdown 
+            id="ddown-buttons" 
+            size="sm" 
+            class="mx-1 my-1" 
+            text="Options" 
+            right>
             <b-dropdown-header>Safe Transforms</b-dropdown-header>
             <b-form-group class="lb-optionsbox">
-              <b-form-checkbox-group id="safeCheckbox" class="lb-optionsbox" stacked name="Optionssafe" v-model="lebabOptions" :options="OptionsSafe" @input="onOptChange">
-              </b-form-checkbox-group>
+              <b-form-checkbox-group 
+                id="safeCheckbox" 
+                v-model="lebabOptions" 
+                :options="OptionsSafe" 
+                class="lb-optionsbox" 
+                stacked 
+                name="Optionssafe" 
+                @input="toNewCode"/>
             </b-form-group>
             <b-dropdown-header>Unsafe Transforms</b-dropdown-header>
             <b-form-group class="lb-optionsbox">
-              <b-form-checkbox-group id="unsafeCheckbox" class="lb-optionsbox" stacked name="Optionsunsafe" v-model="lebabOptions" :options="OptionsUnsafe" @input="onOptChange">
-              </b-form-checkbox-group>
+              <b-form-checkbox-group 
+                id="unsafeCheckbox" 
+                v-model="lebabOptions" 
+                :options="OptionsUnsafe" 
+                class="lb-optionsbox" 
+                stacked 
+                name="Optionsunsafe" 
+                @input="toNewCode"/>
             </b-form-group>
           </b-dropdown>
         </div>
       </div>
-        <codemirror class="mb-4" v-model="code" :options="cmOption" @cursorActivity="onCmCursorActivity" @ready="onCmReady" @input="onCmChange">
-        </codemirror>
+      <codemirror 
+        v-model="code" 
+        :options="cmOption" 
+        class="mb-4"
+        @ready="toNewCode" 
+        @input="toNewCode"/>
     </b-col>
     <b-col md="6">
       <div class="cm-topbar">
-        <div class="cm-topone"></div>
-        <div class="cm-toptwo"></div>
-        <div class="cm-topthree"></div>
+        <div class="cm-topone"/>
+        <div class="cm-toptwo"/>
+        <div class="cm-topthree"/>
       </div>
      
-        <codemirror class="mb-4" v-model="newcode" :options="cmOption2">
-        </codemirror>
+      <codemirror 
+        v-model="newcode" 
+        :options="cmOption2" 
+        class="mb-4"/>
      
     </b-col>
   </b-row>
@@ -52,30 +83,7 @@
 <script>
 export default {
   data() {
-    let code = `'use strict';
-var _ = require('lodash');
-
-function Person(cfg) {
-  this.names = [cfg.fname, cfg.lname];
-}
-Person.prototype.greet = function(title) {
-  title = title || "Mr";
-  var fullName = this.names
-    .map(function(n) {
-      return _.upperFirst(n);
-    })
-    .join(" ");
-
-  console.log("Hello " + title + " " + fullName + "!");
-};
-Person.prototype.greetWithAllTitles = function() {
-  for (var i = 0; i < arguments.length; i++) {
-    var title = arguments[i];
-    this.greet(title);
-  }
-};
-
-module.exports = Person;`;
+    let code = this.$store.state.defaultCode;
     let newcode = '';
     return {
       lebabSemver: `https://img.shields.io/badge/lebab-${process.env.lebab}-brightgreen.svg`,
@@ -83,190 +91,43 @@ module.exports = Person;`;
       newcode,
       minified: false,
       transpiled: false,
-      lebabOptions: [
-        'arrow',
-        'for-of',
-        'for-each',
-        'arg-rest',
-        'obj-method',
-        'obj-shorthand',
-        'no-strict',
-        'exponent',
-        'multi-var',
-        'let',
-        'class',
-        'commonjs',
-        'template',
-        'default-param',
-        'destruct-param',
-        'includes'
-      ],
-      OptionsSafe: [
-        {
-          text: 'arrow',
-          value: 'arrow'
-        },
-        {
-          text: 'for-of',
-          value: 'for-of'
-        },
-        {
-          text: 'for-each',
-          value: 'for-each'
-        },
-        {
-          text: 'arg-rest',
-          value: 'arg-rest'
-        },
-        {
-          text: 'obj-method',
-          value: 'obj-method'
-        },
-        {
-          text: 'obj-shorthand',
-          value: 'obj-shorthand'
-        },
-        {
-          text: 'no-strict',
-          value: 'no-strict'
-        },
-        {
-          text: 'exponent',
-          value: 'exponent'
-        },
-        {
-          text: 'multi-var',
-          value: 'multi-var'
-        }
-      ],
-      OptionsUnsafe: [
-        {
-          text: 'let',
-          value: 'let'
-        },
-        {
-          text: 'class',
-          value: 'class'
-        },
-        {
-          text: 'commonjs',
-          value: 'commonjs'
-        },
-        {
-          text: 'template',
-          value: 'template'
-        },
-        {
-          text: 'default-param',
-          value: 'default-param'
-        },
-        {
-          text: 'destruct-param',
-          value: 'destruct-param'
-        },
-        {
-          text: 'includes',
-          value: 'includes'
-        }
-      ],
-      cmOption: {
-        tabSize: 4,
-        lineNumbers: true,
-        line: true,
-        foldGutter: true,
-        styleSelectedText: true,
-        lineWrapping: true,
-        mode: 'text/javascript',
-        keyMap: 'sublime',
-        matchBrackets: true,
-        showCursorWhenSelecting: true,
-        theme: 'panda-syntax',
-        extraKeys: {
-          Ctrl: 'autocomplete'
-        },
-        hintOptions: {
-          completeSingle: false
-        }
-      },
-      cmOption2: {
-        tabSize: 4,
-        lineNumbers: true,
-        line: true,
-        foldGutter: true,
-        lineWrapping: true,
-        matchBrackets: true,
-        mode: 'text/javascript',
-        theme: 'panda-syntax',
-        readOnly: true
-      }
+      lebabOptions: this.$store.state.lebabDefaultOpts,
+      OptionsSafe: this.generateOptions(['arrow','for-of','for-each','arg-rest','obj-method','obj-shorthand','no-strict','exponent','multi-var']),    
+      OptionsUnsafe: this.generateOptions(['let','class','commonjs','template','default-param','destruct-param','includes']),
+      cmOption: this.generateCmOptions({keyMap:'sublime',matchBrackets:true,readOnly:false}),
+      cmOption2: this.generateCmOptions({matchBrackets:true})
     };
   },
   methods: {
-    lebabTransform(oldcode) {
-      try {
-        const { code, warnings } = this.$lebab.transform(oldcode, this.lebabOptions);
-        this.newcode = code;
-      } catch (err) {
-        console.log('SyntaxError', err.message);
+    generateCmOptions(opts){
+      const cmOpts = this.$store.state.codemirrorOpts;
+      for(const [key,value] of Object.entries(opts)){
+        cmOpts[key] = value
       }
+      return cmOpts;
     },
-    onCmReady(codemirror) {
-      console.log(this.$Babel)
-      this.lebabTransform(this.code);
-    },
-    onCmCursorActivity() {
-      return this.code;
-    },
-    onCmChange(code) {
-      this.lebabTransform(code);
-      this.transpileCode(this.newcode);
-      this.minifyCode(this.newcode);
-    },
-    onOptChange() {
-      this.onCmChange(this.code);
-    },
-    minifyCode(code) {
-      if (this.minified) {
-        this.newcode = Babili.transform(code).code;
-        return true;
-      }
-      return false;
-    },
-    onMinify(minified) {
-      if (!this.minifyCode(this.newcode)) {
-        this.lebabTransform(this.code);
-      }
-      if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-        this.minifyCode(this.newcode);
-      }
-      if (!this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-        this.lebabTransform(this.code);
-        this.transpileCode(this.newcode);
-      }
+    generateOptions(opts){
+      return opts.map(o => ({ text: o, value: o }))
     },
     transpileCode(code) {
-      if (this.transpiled) {
-        this.newcode = Babel.transform(code, {
-          presets: ['es2015']
+      if (this.transpiled || this.minified) {
+        return Babel.transform(code, {
+          presets: this.transpiled ? ['es2015']: null,
+          minified: this.minified
         }).code;
-        return true;
-      }
-      return false;
+      }      
     },
-    onTranspile(transpiled) {
-      if (!this.transpileCode(this.newcode)) {
-        this.lebabTransform(this.code);
-      }
-      if (this.minifyCode(this.newcode) && this.transpileCode(this.newcode)) {
-        this.minifyCode(this.newcode);
+    lebabTransform(oldcode) {
+      try {
+        let {code,warnings} = this.$lebab.transform(oldcode, this.lebabOptions);
+        return this.transpileCode(code) || code
+      } catch (err) {
+        console.log('SyntaxError', err.message);
+        return this.newcode;
       }
     },
-    createWorker(){
-      if (process.browser) {
-          for(let i = 0, len = navigator.hardwareConcurrency || 1; i < len; i++) {
-          this.Babel.push(this.$Babel.createWorker())
-        }
-      }
+    toNewCode(){
+      this.newcode = this.lebabTransform(this.code);
     }
   }
 };
