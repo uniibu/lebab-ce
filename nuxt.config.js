@@ -28,7 +28,8 @@ module.exports = {
   },
   build: {
     extractCSS: true,
-    optimization: conf.build.optimizationn,
+    optimization: conf.build.optimization,
+    publicPath: conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/',
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
