@@ -45,5 +45,8 @@ module.exports = {
       }
       config.output.publicPath = conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/';
     }
+  },
+  router: {
+    base: conf.isDev ? '/' : '/lebab-ce/'
   }
 };
