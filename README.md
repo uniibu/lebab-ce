@@ -5,5 +5,24 @@
 - Uses the latest Lebab library
 - Customizable Options
 - Minified/Transpiled Option
-- Uses Web-Worker for asynchronous code transforming.
+- Responsive and made on Nuxtjs/Vuejs
+
+## Forking/Cloning
+
+``` bash
+# cloning
+$ git clone https://github.com/uniibu/lebab-ce.git
+$ cd lebab-ce
+
+# install dependencies
+$ npm install # Or yarn install
+
+# serve with hot reload at localhost:3000
+$ npm run dev # Or yarn dev
+
+# build dist folder for production
+$ npm run generate # Or yarn generate
+
+```
+
 
