@@ -1,0 +1,35 @@
+{
+  "name": "lebabnuxt",
+  "version": "1.0.1",
+  "description": "Nuxt.js project",
+  "author": "vhanni <bayanipsayoiii@gmail.com>",
+  "private": true,
+  "main": "nuxt.config.js",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "analyze": "nuxt build -a",
+    "lint": "eslint --fix --ext .js,.vue .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/markdownit-loader": "^1.1.1",
+    "lebab": "^2.7.7",
+    "markdown-it": "^8.4.1",
+    "nuxt": "npm:nuxt-edge"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "vue-codemirror": "^4.0.5"
+  }
+}

@@ -1,0 +1,5 @@
+.nuxt/*
+dist/*
+build/*
+*.template.*
+node_modules/*
