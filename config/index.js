@@ -1,8 +1,14 @@
 const { resolve } = require('path');
 const resolvePath = file => resolve(__dirname, '..', file);
+const lebab = require.resolve('lebab')
+const lebabpkg = require(path.join(path.dirname(lebab), 'package.json'))
+
 module.exports = {
   isDev: process.env.NODE_ENV === 'development',
   mode: 'spa',
+  env: {
+    lebab: lebabpkg.version
+  },
   head: {
     title: 'Lebab Modernizing Javascript Code',
     meta: [
@@ -17,7 +23,7 @@ module.exports = {
   },
   css: ['codemirror/lib/codemirror.css', '~/assets/scss/style.scss'],
   modules: [
-    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabVer', '~/modules/lebabModule', '~/modules/markdownModule', '@nuxtjs/axios'
+    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabModule', '~/modules/markdownModule', '@nuxtjs/axios'
   ],
   plugins: [{ src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }],
   build: {

@@ -8,8 +8,7 @@ module.exports = {
     injected: true
   },
   plugins: conf.plugins,
-
-  loading: false,
+  env: conf.env,
   loadingIndicator: {
     name: 'cube-grid',
     color: '#323330',
