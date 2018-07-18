@@ -2,21 +2,23 @@
   "name": "lebabnuxt",
   "version": "1.0.1",
   "description": "Nuxt.js project",
-  "author": "vhanni <bayanipsayoiii@gmail.com>",
-  "private": true,
+  "author": "Uni Sayo <unibtc@gmail.com>",
+  "contributors": [
+    "vhanni <bayanipsayoiii@gmail.com>"
+  ],
   "main": "nuxt.config.js",
   "scripts": {
+    "clean": "rm -rf dist .nuxt build docs && npm run lint",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
     "lint": "eslint --fix --ext .js,.vue .",
-    "precommit": "npm run lint"
+    "push": "npm run clean && npm run build && npm run generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "@nuxtjs/markdownit-loader": "^1.1.1",
     "lebab": "^2.7.7",
     "markdown-it": "^8.4.1",
     "nuxt": "npm:nuxt-edge"
@@ -31,5 +33,11 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "vue-codemirror": "^4.0.5"
-  }
+  },
+  "license": "MIT",
+  "repository": "https://github.com/uniibu/lebab-ce",
+  "bugs": {
+    "url": "https://github.com/uniibu/lebab-ce/issues"
+  },
+  "homepage": "https://uniibu.github.io/lebab-ce"
 }
