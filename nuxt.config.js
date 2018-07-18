@@ -17,7 +17,7 @@ module.exports = {
   render: {
     bundleRenderer: {
       shouldPreload: file => {
-        return ['js'].includes(file);
+        return [ 'js' ].includes(file);
       }
     }
   },

@@ -92,35 +92,39 @@ export default {
       minified: false,
       transpiled: false,
       lebabOptions: this.$store.state.lebabDefaultOpts,
-      OptionsSafe: this.generateOptions(['arrow','for-of','for-each','arg-rest','obj-method','obj-shorthand','no-strict','exponent','multi-var']),    
-      OptionsUnsafe: this.generateOptions(['let','class','commonjs','template','default-param','destruct-param','includes']),
-      cmOption: this.generateCmOptions({keyMap:'sublime',matchBrackets:true,readOnly:false}),
-      cmOption2: this.generateCmOptions({matchBrackets:true})
+      OptionsSafe: this.generateOptions([
+        'arrow', 'for-of', 'for-each', 'arg-rest', 'obj-method', 'obj-shorthand', 'no-strict', 'exponent', 'multi-var'
+      ]),    
+      OptionsUnsafe: this.generateOptions([
+        'let', 'class', 'commonjs', 'template', 'default-param', 'destruct-param', 'includes'
+      ]),
+      cmOption: this.generateCmOptions({ keyMap: 'sublime', matchBrackets: true, readOnly: false }),
+      cmOption2: this.generateCmOptions({ matchBrackets: true })
     };
   },
   methods: {
     generateCmOptions(opts){
       const cmOpts = this.$store.state.codemirrorOpts;
-      for(const [key,value] of Object.entries(opts)){
-        cmOpts[key] = value
+      for(const [ key, value ] of Object.entries(opts)){
+        cmOpts[key] = value;
       }
       return cmOpts;
     },
     generateOptions(opts){
-      return opts.map(o => ({ text: o, value: o }))
+      return opts.map(o => ({ text: o, value: o }));
     },
     transpileCode(code) {
       if (this.transpiled || this.minified) {
         return Babel.transform(code, {
-          presets: this.transpiled ? ['es2015']: null,
+          presets: this.transpiled ? [ 'es2015' ]: null,
           minified: this.minified
         }).code;
       }      
     },
     lebabTransform(oldcode) {
       try {
-        let {code,warnings} = this.$lebab.transform(oldcode, this.lebabOptions);
-        return this.transpileCode(code) || code
+        let { code, warnings } = this.$lebab.transform(oldcode, this.lebabOptions);
+        return this.transpileCode(code) || code;
       } catch (err) {
         console.log('SyntaxError', err.message);
         return this.newcode;

@@ -1,7 +1,7 @@
-const { resolve } = require('path');
+const { resolve, join, dirname } = require('path');
 const resolvePath = file => resolve(__dirname, '..', file);
-const lebab = require.resolve('lebab')
-const lebabpkg = require(path.join(path.dirname(lebab), 'package.json'))
+const lebab = require.resolve('lebab');
+const lebabpkg = require(join(dirname(lebab), 'package.json'));
 
 module.exports = {
   isDev: process.env.NODE_ENV === 'development',
@@ -16,16 +16,14 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: 'Lebab Modernizing Javascript Code' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' }],
-    script: [
-      { src: 'https://unpkg.com/babel-standalone/babel.min.js' }
-    ]
+    link: [ { rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' } ],
+    script: [ { src: 'https://unpkg.com/babel-standalone/babel.min.js', body: true } ]
   },
-  css: ['codemirror/lib/codemirror.css', '~/assets/scss/style.scss'],
+  css: [ 'codemirror/lib/codemirror.css', '~/assets/scss/style.scss' ],
   modules: [
-    ['bootstrap-vue/nuxt', { css: false }], '~/modules/lebabModule', '~/modules/markdownModule', '@nuxtjs/axios'
+    [ 'bootstrap-vue/nuxt', { css: false } ], '~/modules/lebabModule', '~/modules/markdownModule', '@nuxtjs/axios'
   ],
-  plugins: [{ src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }],
+  plugins: [ { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false } ],
   build: {
     optimization: {
       concatenateModules: true,
@@ -48,31 +46,32 @@ module.exports = {
     },
     extraRules: {
       test: /\.inline$/,
-      use: [{
-        loader: 'vue-style-loader',
-        options: {
-          sourceMap: false
-        }
-      },
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: false,
-          minimize: true,
-          importLoaders: 1,
-          alias: {
-            '/assets': resolve('assets'),
-            '/static': resolve('static')
+      use: [
+        {
+          loader: 'vue-style-loader',
+          options: {
+            sourceMap: false
+          }
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: false,
+            minimize: true,
+            importLoaders: 1,
+            alias: {
+              '/assets': resolve('assets'),
+              '/static': resolve('static')
+            }
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: false,
+            useConfigFile: false
           }
         }
-      },
-      {
-        loader: 'postcss-loader',
-        options: {
-          sourceMap: false,
-          useConfigFile: false
-        }
-      }
       ]
     }
   }

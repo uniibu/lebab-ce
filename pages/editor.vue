@@ -10,8 +10,8 @@
 <script>
 import LebabEditor from '~/components/LebabEditor.vue';
 export default {
-	components: {
-		LebabEditor
-	}
+  components: {
+    LebabEditor
+  }
 };
 </script>

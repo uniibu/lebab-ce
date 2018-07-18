@@ -23,13 +23,12 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            defaultCode: this.$store.state.defaultCode,
-            cmOption: this.$store.state.codemirrorOpts
-        };
-    }
+  data() {
+    return {
+      defaultCode: this.$store.state.defaultCode,
+      cmOption: this.$store.state.codemirrorOpts
+    };
+  }
 };
 </script>
-
 
