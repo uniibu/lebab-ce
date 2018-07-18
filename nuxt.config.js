@@ -1,4 +1,8 @@
 const conf = require('./config');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob-all');
+const path = require('path');
+
 module.exports = {
   mode: conf.mode,
   head: conf.head,
@@ -41,6 +45,23 @@ module.exports = {
         config.performance.maxEntrypointSize = 1510000;
         config.performance.maxAssetSize = 500000;
         config.module.rules.push(conf.build.extraRules);
+      }
+      if (!isDev) {
+        config.plugins.push(
+          new PurgecssPlugin({
+            paths: glob.sync([
+              path.join(__dirname, './pages/**/*.vue'),
+              path.join(__dirname, './layouts/**/*.vue'),
+              path.join(__dirname, './components/**/*.vue')
+            ]),
+            whitelist: [ 
+              'html', 'body', 'nuxt-progress' 
+            ],
+            whitelistPatterns: [ 
+              /page-enter/, /page-leave/, '/cm/', '/Codemirror/' 
+            ]
+          })
+        );
       }
       config.output.publicPath = conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/';
     }
