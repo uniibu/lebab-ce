@@ -30,7 +30,9 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.7.0",
+    "glob-all": "^3.1.0",
     "node-sass": "^4.9.2",
+    "purgecss-webpack-plugin": "^1.2.0",
     "sass-loader": "^7.0.3",
     "vue-codemirror": "^4.0.5"
   },
