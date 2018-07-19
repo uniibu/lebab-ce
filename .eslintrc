@@ -65,6 +65,9 @@
     ],
     "switch-colon-spacing": "error",
     "key-spacing": "error",
-    "comma-spacing": "error"
+    "comma-spacing": "error",
+    "arrow-spacing": "error",
+    "arrow-body-style": "error",
+    "no-unused-vars": "error"
   }
 }
