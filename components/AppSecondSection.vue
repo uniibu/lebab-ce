@@ -11,7 +11,7 @@
             <div class="cm-topone"/>
             <div class="cm-toptwo"/>
             <div class="cm-topthree"/>
-          </div>                  
+          </div>
           <codemirror 
             v-model="defaultCode" 
             :options="cmOption"
