@@ -15,7 +15,7 @@
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
     "lint": "eslint --fix --ext .js,.vue .",
-    "push": "npm run clean && NODE_ENV=development node ./build.js"
+    "push": "npm run clean && node ./build.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
