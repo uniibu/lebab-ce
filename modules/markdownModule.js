@@ -25,10 +25,8 @@ module.exports = function nuxtMarkdownit (options) {
     // .md Loader
     config.module.rules.push({
       test: /\.md$/,
-      use: [
-        'raw-loader',
-        markDownItLoader
-      ]
+      use: [ 'raw-loader',
+        markDownItLoader ]
     });
   });
 

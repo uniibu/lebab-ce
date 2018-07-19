@@ -8,19 +8,11 @@ module.exports = {
     injected: true
   },
   plugins: conf.plugins,
-
-  loading: false,
+  env: conf.env,
   loadingIndicator: {
     name: 'cube-grid',
     color: '#323330',
     background: 'white'
-  },
-  render: {
-    bundleRenderer: {
-      shouldPreload: file => {
-        return ['js'].includes(file);
-      }
-    }
   },
   dev: conf.isDev,
   generate: {
@@ -28,7 +20,7 @@ module.exports = {
   },
   build: {
     extractCSS: true,
-    optimization: conf.build.optimization,
+    parallel: true,
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -37,11 +29,6 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         });
-      }
-      if (isClient) {
-        config.performance.maxEntrypointSize = 1510000;
-        config.performance.maxAssetSize = 500000;
-        config.module.rules.push(conf.build.extraRules);
       }
       config.output.publicPath = conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/';
     }

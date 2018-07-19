@@ -11,7 +11,7 @@
             <div class="cm-topone"/>
             <div class="cm-toptwo"/>
             <div class="cm-topthree"/>
-          </div>                  
+          </div>
           <codemirror 
             v-model="defaultCode" 
             :options="cmOption"
@@ -23,13 +23,12 @@
 </template>
 <script>
 export default {
-    data() {
-        return {
-            defaultCode: this.$store.state.defaultCode,
-            cmOption: this.$store.state.codemirrorOpts
-        };
-    }
+  data() {
+    return {
+      defaultCode: this.$store.state.defaultCode,
+      cmOption: this.$store.state.codemirrorOpts
+    };
+  }
 };
 </script>
-
 

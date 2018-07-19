@@ -24,11 +24,14 @@
 <script>
 export default {
   data() {
-    const { code, warnings } = this.$lebab.transform(this.$store.state.defaultCode, this.$store.state.lebabDefaultOpts);
     return {
-      lebabCode: code,
+      lebabCode: '',
       cmOption: this.$store.state.codemirrorOpts
     };
+  },
+  mounted(){
+    var { code } = window.lebab.transform(this.$store.state.defaultCode, this.$store.state.lebabDefaultOpts);
+    this.lebabCode = code;
   }
 };
 </script>
