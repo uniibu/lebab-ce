@@ -1,14 +1,7 @@
-const { resolve, join, dirname } = require('path');
-const resolvePath = file => resolve(__dirname, '..', file);
-const lebab = require.resolve('lebab');
-const lebabpkg = require(join(dirname(lebab), 'package.json'));
-
+const babelUrl = 'https://cdn.rawgit.com/umdfied/90094bc737a35d6256c0795a64ebced1/raw/27b402aa52aa8ab5eb5b5e3008d5109aa75f27bc/babel-standalone.min.js';
 module.exports = {
   isDev: process.env.NODE_ENV === 'development',
   mode: 'spa',
-  env: {
-    lebab: lebabpkg.version
-  },
   head: {
     title: 'Lebab Modernizing Javascript Code',
     meta: [
@@ -16,63 +9,12 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: 'Lebab Modernizing Javascript Code' }
     ],
-    link: [ { rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' } ],
-    script: [ { src: 'https://unpkg.com/babel-standalone/babel.min.js', body: true } ]
+    link: [ { rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' }, { href: babelUrl, rel: 'preload', as: 'script' } ],
+    script: [ { src: babelUrl, body: true } ]
   },
-  css: [ 'codemirror/lib/codemirror.css', '~/assets/scss/style.scss' ],
+  css: [ '~/assets/scss/style.scss' ],
   modules: [
-    [ 'bootstrap-vue/nuxt', { css: false } ], '~/modules/lebabModule', '~/modules/markdownModule', '@nuxtjs/axios'
+    [ 'bootstrap-vue/nuxt', { css: false } ], '~/modules/markdownModule', '@nuxtjs/axios'
   ],
-  plugins: [ { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false } ],
-  build: {
-    optimization: {
-      concatenateModules: true,
-      splitChunks: {
-        chunks: 'all',
-        name: true,
-        cacheGroups: {
-          vendor: {
-            test: /node_modules[\\/](vue|vue-loader|vue-router|vuex|vue-meta|core-js|babel-runtime|es6-promise|axios|webpack|setimmediate|timers-browserify|process|regenerator-runtime|cookie|js-cookie|is-buffer|dotprop|codemirror|nuxt\.js)[\\/]/,
-            priority: 10,
-            chunks: 'all'
-          },
-          commons: {
-            test: /node_modules[\\/](lodash|esprima|acorn|lebab)[\\/]/,
-            priority: 10,
-            chunks: 'all'
-          }
-        }
-      }
-    },
-    extraRules: {
-      test: /\.inline$/,
-      use: [
-        {
-          loader: 'vue-style-loader',
-          options: {
-            sourceMap: false
-          }
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: false,
-            minimize: true,
-            importLoaders: 1,
-            alias: {
-              '/assets': resolve('assets'),
-              '/static': resolve('static')
-            }
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: false,
-            useConfigFile: false
-          }
-        }
-      ]
-    }
-  }
+  plugins: [ { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false } ]
 };
