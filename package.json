@@ -15,24 +15,21 @@
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
     "lint": "eslint --fix --ext .js,.vue .",
-    "push": "npm run clean && npm run build && npm run generate"
+    "push": "npm run clean && NODE_ENV=development node ./build.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
-    "lebab": "^2.7.7",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "markdown-it": "^8.4.2",
     "nuxt": "npm:nuxt-edge"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
-    "bootstrap-vue": "^2.0.0-rc.11",
     "eslint": "^5.1.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.7.0",
-    "glob-all": "^3.1.0",
     "node-sass": "^4.9.2",
-    "purgecss-webpack-plugin": "^1.2.0",
     "sass-loader": "^7.0.3",
     "vue-codemirror": "^4.0.5"
   },
