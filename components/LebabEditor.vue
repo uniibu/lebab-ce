@@ -115,7 +115,7 @@ export default {
     },
     transpileCode(code) {
       if (this.transpiled || this.minified) {
-        return Babel.transform(code, {
+        return window.babelStandalone.transform(code, {
           presets: this.transpiled ? [ 'es2015' ]: null,
           minified: this.minified
         }).code;
@@ -123,7 +123,7 @@ export default {
     },
     lebabTransform(oldcode) {
       try {
-        let { code, warnings } = this.$lebab.transform(oldcode, this.lebabOptions);
+        let { code } = window.lebab.transform(oldcode, this.lebabOptions);
         return this.transpileCode(code) || code;
       } catch (err) {
         console.log('SyntaxError', err.message);
