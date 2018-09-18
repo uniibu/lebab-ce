@@ -9,6 +9,7 @@ Person.prototype.greet = function(title) {
   title = title || "Mr";
   var fullName = this.names
     .map(function(n) {
+      n = n || ''
       return _.upperFirst(n);
     })
     .join(" ");
