@@ -1,5 +1,4 @@
 import Vuex from 'vuex';
-
 const defaultCode = `'use strict';
 var _ = require('lodash');
 
@@ -24,7 +23,6 @@ Person.prototype.greetWithAllTitles = function() {
 };
 
 module.exports = Person;`;
-
 const createStore = () => new Vuex.Store({
   state: {
     codemirrorOpts: {
@@ -41,6 +39,7 @@ const createStore = () => new Vuex.Store({
     defaultCode,
     lebabDefaultOpts: [
       'arrow',
+      'arrow-return',
       'for-of',
       'for-each',
       'arg-rest',
@@ -59,5 +58,4 @@ const createStore = () => new Vuex.Store({
     ]
   }
 });
-
 export default createStore;
