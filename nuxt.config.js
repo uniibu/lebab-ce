@@ -21,7 +21,7 @@ module.exports = {
   build: {
     extractCSS: true,
     parallel: true,
-    extend (config, { isDev, isClient }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
@@ -30,10 +30,6 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-      config.output.publicPath = conf.isDev ? '/_nuxt/' : '/lebab-ce/_nuxt/';
     }
-  },
-  router: {
-    base: conf.isDev ? '/' : '/lebab-ce/'
   }
 };
