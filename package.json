@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "^5.3.1",
     "bootstrap-vue": "^2.0.0-rc.11",
     "markdown-it": "^8.4.2",
-    "nuxt": "npm:nuxt-edge"
+    "nuxt": "2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
