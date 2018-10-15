@@ -1,13 +1,10 @@
-const path = require('path');
-
-module.exports = function nuxtMarkdownit (options) {
+import path from 'path';
+export default function nuxtMarkdownit(options) {
   const _options = Object.assign({}, options, this.options.markdownit);
-
   const markDownItLoader = {
     loader: '@nuxtjs/markdownit-loader',
     options: _options
   };
-
   this.extendBuild(config => {
     // Vue template support
     const vueLoader = config.module.rules.find(rule => rule.test.toString() === '/\\.vue$/');
@@ -21,15 +18,12 @@ module.exports = function nuxtMarkdownit (options) {
       }
       vueLoader.options.loaders['md'] = markDownItLoader;
     }
-
     // .md Loader
     config.module.rules.push({
       test: /\.md$/,
-      use: [ 'raw-loader',
-        markDownItLoader ]
+      use: [ 'raw-loader', markDownItLoader ]
     });
   });
-
   if (_options.injected === true) {
     delete _options.injected;
     // Register plugin

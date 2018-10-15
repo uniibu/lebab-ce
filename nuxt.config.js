@@ -1,5 +1,5 @@
-const conf = require('./config');
-module.exports = {
+import conf from './config';
+export default {
   mode: conf.mode,
   head: conf.head,
   css: conf.css,
@@ -19,7 +19,6 @@ module.exports = {
     dir: 'docs'
   },
   build: {
-    extractCSS: true,
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

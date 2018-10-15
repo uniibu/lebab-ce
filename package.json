@@ -15,7 +15,7 @@
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
     "lint": "eslint --fix --ext .js,.vue .",
-    "push": "npm run clean && node ./build.js"
+    "push": "npm run clean && node -r esm ./build.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
@@ -24,11 +24,12 @@
     "nuxt": "^2.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.1.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.7.0",
+    "esm": "^3.0.84",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "vue-codemirror": "^4.0.5"

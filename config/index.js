@@ -1,5 +1,5 @@
 const babelUrl = 'https://cdn.rawgit.com/umdfied/90094bc737a35d6256c0795a64ebced1/raw/27b402aa52aa8ab5eb5b5e3008d5109aa75f27bc/babel-standalone.min.js';
-module.exports = {
+export default {
   isDev: process.env.NODE_ENV === 'development',
   mode: 'spa',
   head: {
