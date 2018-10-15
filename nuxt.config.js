@@ -20,7 +20,6 @@ module.exports = {
   },
   build: {
     extractCSS: true,
-    parallel: true,
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
