@@ -7,8 +7,8 @@ export default function nuxtMarkdownit(options) {
   };
   this.extendBuild(config => {
     // Vue template support
-    const vueLoader = config.module.rules.find(rule => rule.test.toString() === '/\\.vue$/');
-    // Checks for query loaders first (<= rc5)
+    const vueLoader = config.module.rules.find(rule => rule.test.toString() === '/\\.vue$/i');
+
     if (vueLoader.query && vueLoader.query.loaders) {
       vueLoader.query.loaders['md'] = markDownItLoader;
     } else {
