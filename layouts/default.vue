@@ -3,7 +3,7 @@
     <app-navbar/>
     <a href="https://github.com/uniibu/lebab-ce">
       <img
-        style="position: absolute; top: 0; right: 0; border: 0; z-index: 9999;"
+        class="fork-me"
         src="~/assets/images/forkme_right_gray_6d6d6d.png"
         alt="Fork me on GitHub"
         width="149"
