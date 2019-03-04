@@ -7,11 +7,11 @@
             <div class="cm-topone"/>
             <div class="cm-toptwo"/>
             <div class="cm-topthree"/>
-          </div>                  
-          <codemirror 
-            v-model="lebabCode" 
-            :options="cmOption" 
-            class="a"/>                   
+          </div>
+          <codemirror
+            v-model="lebabCode"
+            :options="cmOption"
+            class="a"/>
         </b-col>
         <b-col md="6">
           <h1>Lebab it!</h1>
