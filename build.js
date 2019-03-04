@@ -2,6 +2,7 @@ import axios from 'axios';
 import consola from 'consola';
 import { Nuxt, Builder, Generator } from 'nuxt';
 import nuxtOpts from './nuxt.config';
+import fs from 'fs';
 nuxtOpts.dev = false;
 const getLebab = async () => {
   const { data: { message: msg } } = await axios.get('https://umdfied.herokuapp.com/umdfied/lebab/latest');
@@ -27,5 +28,7 @@ const build = async () => {
   await generator.generate({ init: true, build: true });
 };
 build()
-  .then(() => process.exit(0))
+  .then(() => {
+    fs.writeFileSync('docs/CNAME', 'lebab.unibtc.me');
+  })
   .catch(error => consola.fatal(error));
