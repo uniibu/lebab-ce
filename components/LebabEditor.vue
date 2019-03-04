@@ -6,63 +6,63 @@
         <div class="cm-toptwo"/>
         <div class="cm-topthree"/>
         <div class="cm-topminify">
-          <b-form-checkbox 
-            id="checkboxminify" 
+          <b-form-checkbox
+            id="checkboxminify"
             v-model="minified"
             @input="toNewCode">
             Minify(babili)
           </b-form-checkbox>
         </div>
         <div class="cm-topminify-es2015">
-          <b-form-checkbox 
-            id="checkboxtranspile" 
-            v-model="transpiled" 
+          <b-form-checkbox
+            id="checkboxtranspile"
+            v-model="transpiled"
             @input="toNewCode">
             Transpile(babel)
           </b-form-checkbox>
         </div>
         <div class="dropdown lb-drop">
-          <a 
-            href="https://github.com/lebab/lebab" 
+          <a
+            href="https://github.com/lebab/lebab"
             target="_blank">
             <b-img :src="lebabSemver" />
           </a>
-          <b-dropdown 
-            id="ddown-buttons" 
-            size="sm" 
-            class="mx-1 my-1" 
-            text="Options" 
+          <b-dropdown
+            id="ddown-buttons"
+            size="sm"
+            class="mx-1 my-1"
+            text="Options"
             right>
             <b-dropdown-header>Safe Transforms</b-dropdown-header>
             <b-form-group class="lb-optionsbox">
-              <b-form-checkbox-group 
-                id="safeCheckbox" 
-                v-model="lebabOptions" 
-                :options="OptionsSafe" 
-                class="lb-optionsbox" 
-                stacked 
-                name="Optionssafe" 
+              <b-form-checkbox-group
+                id="safeCheckbox"
+                v-model="lebabOptions"
+                :options="OptionsSafe"
+                class="lb-optionsbox"
+                stacked
+                name="Optionssafe"
                 @input="toNewCode"/>
             </b-form-group>
             <b-dropdown-header>Unsafe Transforms</b-dropdown-header>
             <b-form-group class="lb-optionsbox">
-              <b-form-checkbox-group 
-                id="unsafeCheckbox" 
-                v-model="lebabOptions" 
-                :options="OptionsUnsafe" 
-                class="lb-optionsbox" 
-                stacked 
-                name="Optionsunsafe" 
+              <b-form-checkbox-group
+                id="unsafeCheckbox"
+                v-model="lebabOptions"
+                :options="OptionsUnsafe"
+                class="lb-optionsbox"
+                stacked
+                name="Optionsunsafe"
                 @input="toNewCode"/>
             </b-form-group>
           </b-dropdown>
         </div>
       </div>
-      <codemirror 
-        v-model="code" 
-        :options="cmOption" 
+      <codemirror
+        v-model="code"
+        :options="cmOption"
         class="mb-4"
-        @ready="toNewCode" 
+        @ready="toNewCode"
         @input="toNewCode"/>
     </b-col>
     <b-col md="6">
@@ -71,12 +71,12 @@
         <div class="cm-toptwo"/>
         <div class="cm-topthree"/>
       </div>
-     
-      <codemirror 
-        v-model="newcode" 
-        :options="cmOption2" 
+
+      <codemirror
+        v-model="newcode"
+        :options="cmOption2"
         class="mb-4"/>
-     
+
     </b-col>
   </b-row>
 </template>
@@ -94,7 +94,7 @@ export default {
       lebabOptions: this.$store.state.lebabDefaultOpts,
       OptionsSafe: this.generateOptions([
         'arrow', 'arrow-return', 'for-of', 'for-each', 'arg-rest', 'obj-method', 'obj-shorthand', 'no-strict', 'exponent', 'multi-var'
-      ]),    
+      ]),
       OptionsUnsafe: this.generateOptions([
         'let', 'class', 'commonjs', 'template', 'default-param', 'destruct-param', 'includes'
       ]),
@@ -115,11 +115,11 @@ export default {
     },
     transpileCode(code) {
       if (this.transpiled || this.minified) {
-        return window.babelStandalone.transform(code, {
+        return window.babel2Fstandalone.transform(code, {
           presets: this.transpiled ? [ 'es2015' ]: null,
           minified: this.minified
         }).code;
-      }      
+      }
     },
     lebabTransform(oldcode) {
       try {
