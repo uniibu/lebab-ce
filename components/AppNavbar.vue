@@ -19,11 +19,13 @@
           <b-nav-item
             to="/editor">Try It Live</b-nav-item>
           <b-nav-item
+            rel="noopener"
             target="_blank"
-            href="//github.com/lebab/lebab">Lebab</b-nav-item>
+            href="https://github.com/lebab/lebab">Lebab</b-nav-item>
           <b-nav-item
+            rel="noopener"
             target="_blank"
-            href="//github.com/lebab/lebab/issues">Issues</b-nav-item>
+            href="https://github.com/lebab/lebab/issues">Issues</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>

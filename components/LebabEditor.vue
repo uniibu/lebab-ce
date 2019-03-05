@@ -24,6 +24,7 @@
         <div class="dropdown lb-drop">
           <a
             href="https://github.com/lebab/lebab"
+            rel="noopener"
             target="_blank">
             <b-img :src="lebabSemver" />
           </a>
