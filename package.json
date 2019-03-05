@@ -10,12 +10,11 @@
   "scripts": {
     "clean": "rimraf dist .nuxt build docs && npm run lint",
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "npm run clean && nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
-    "lint": "eslint --fix --ext .js,.vue .",
-    "push": "npm run clean && npm run build"
+    "lint": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.4.1",
