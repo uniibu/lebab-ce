@@ -12,10 +12,10 @@
             <div class="cm-toptwo"/>
             <div class="cm-topthree"/>
           </div>
-          <codemirror 
-            v-model="defaultCode" 
+          <codemirror
+            v-model="defaultCode"
             :options="cmOption"
-            class="a"/>               
+            class="a"/>
         </b-col>
       </b-row>
     </b-container>
