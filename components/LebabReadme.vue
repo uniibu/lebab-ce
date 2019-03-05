@@ -9,7 +9,7 @@ export default {
     };
   },
   created(){
-    this.$axios.$get('https://raw.githubusercontent.com/lebab/lebab/master/README.md')
+    this.$axios.$get('https://cdn.staticaly.com/gh/lebab/lebab/master/README.md')
       .then((res) => {
         res = res.replace(/http:/g, 'https:');
         this.model = res;
