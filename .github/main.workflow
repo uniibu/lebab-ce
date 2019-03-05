@@ -15,6 +15,6 @@ action "Deploy to gh-pages" {
     BUILD_SCRIPT = "yarn && yarn build"
     FOLDER = "docs"
   }
-  secrets = ["ACCESS_TOKEN"]
   needs = ["master branch only"]
+  secrets = ["ACCESS_TOKEN"]
 }
