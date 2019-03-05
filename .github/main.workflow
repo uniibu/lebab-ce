@@ -11,10 +11,10 @@ action "master branch only" {
 action "Deploy to gh-pages" {
   uses = "JamesIves/github-pages-deploy-action@master"
   env = {
-    BRANCH = "master"
-    BUILD_SCRIPT = "yarn && yarn push"
+    BRANCH = "gh-pages"
+    BUILD_SCRIPT = "yarn && yarn build"
     FOLDER = "docs"
   }
-  secrets = ["ACCESS_TOKEN"]
   needs = ["master branch only"]
+  secrets = ["ACCESS_TOKEN"]
 }
