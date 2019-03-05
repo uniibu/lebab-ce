@@ -9,7 +9,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: 'Lebab Modernizing Javascript Code' }
     ],
-    link: [ { rel: 'icon', type: 'image/x-icon', href: '/lebab-ce/favicon.ico' }, { href: babelUrl, rel: 'preload', as: 'script' } ],
+    link: [ { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { href: babelUrl, rel: 'preload', as: 'script' } ],
     script: [ { src: babelUrl, body: true } ]
   },
   css: [ '~/assets/scss/style.scss' ],
