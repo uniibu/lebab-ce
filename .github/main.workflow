@@ -1,14 +1,9 @@
-workflow "Deploy to Github Pages" {
+workflow "Deploy to GH Docs" {
   on = "push"
-  resolves = ["Deploy to docs"]
+  resolves = ["Deploy to Docs"]
 }
 
-action "master branch only" {
-  uses = "actions/bin/filter@master"
-  args = "branch master"
-}
-
-action "Deploy to docs" {
+action "Deploy to Docs" {
   uses = "JamesIves/github-pages-deploy-action@master"
   env = {
     BRANCH = "master"
@@ -19,5 +14,4 @@ action "Deploy to docs" {
     COMMIT_EMAIL = "unibtc@gmail.com"
   }
   secrets = ["ACCESS_TOKEN"]
-  needs = ["master branch only"]
 }
