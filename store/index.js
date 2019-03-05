@@ -1,4 +1,3 @@
-import Vuex from 'vuex';
 const defaultCode = `'use strict';
 var _ = require('lodash');
 
@@ -24,39 +23,37 @@ Person.prototype.greetWithAllTitles = function() {
 };
 
 module.exports = Person;`;
-const createStore = () => new Vuex.Store({
-  state: {
-    codemirrorOpts: {
-      tabSize: 4,
-      foldGutter: true,
-      lineNumbers: true,
-      theme: 'panda-syntax',
-      lineWrapping: true,
-      mode: 'text/javascript',
-      matchBrackets: false,
-      readOnly: true,
-      keyMap: 'default'
-    },
-    defaultCode,
-    lebabDefaultOpts: [
-      'arrow',
-      'arrow-return',
-      'for-of',
-      'for-each',
-      'arg-rest',
-      'obj-method',
-      'obj-shorthand',
-      'no-strict',
-      'exponent',
-      'multi-var',
-      'let',
-      'class',
-      'commonjs',
-      'template',
-      'default-param',
-      'destruct-param',
-      'includes'
-    ]
-  }
-});
-export default createStore;
+export const strict = false;
+export const state = () => ({
+  codemirrorOpts: {
+    tabSize: 4,
+    foldGutter: true,
+    lineNumbers: true,
+    theme: 'panda-syntax',
+    lineWrapping: true,
+    mode: 'text/javascript',
+    matchBrackets: false,
+    readOnly: true,
+    keyMap: 'default'
+  },
+  defaultCode,
+  lebabDefaultOpts: [
+    'arrow',
+    'arrow-return',
+    'for-of',
+    'for-each',
+    'arg-rest',
+    'obj-method',
+    'obj-shorthand',
+    'no-strict',
+    'exponent',
+    'multi-var',
+    'let',
+    'class',
+    'commonjs',
+    'template',
+    'default-param',
+    'destruct-param',
+    'includes'
+  ]
+})
