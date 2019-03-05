@@ -6,7 +6,7 @@ workflow "Deploy to GH Docs" {
 action "Deploy to Docs" {
   uses = "JamesIves/github-pages-deploy-action@master"
   env = {
-    BRANCH = "master"
+    BRANCH = "docs"
     BUILD_SCRIPT = "yarn && yarn build"
     FOLDER = "docs"
     BASE_BRANCH = "master"
