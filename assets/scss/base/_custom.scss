@@ -1,162 +1,162 @@
 html {
- font-size: 16px;
- word-spacing: 1px;
- -ms-text-size-adjust: 100%;
- -webkit-text-size-adjust: 100%;
- -moz-osx-font-smoothing: grayscale;
- -webkit-font-smoothing: antialiased;
- box-sizing: border-box;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 *,
-*:before,
-*:after {
- box-sizing: border-box;
- margin: 0;
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
 }
 
 body {
- font-family: Raleway, Helvetica, Arial, sans-serif;
- position: relative;
+  font-family: Raleway, Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 .custom-control-indicator {
- background-color: #59a9c2;
- height: 14px;
- width: 14px;
+  background-color: #59a9c2;
+  height: 14px;
+  width: 14px;
 }
 
 .custom-control-description {
- font-size: 16px;
+  font-size: 16px;
 }
 
 .custom-control {
- padding-left: 20px;
+  padding-left: 20px;
 }
 
 .lb-options {
- position: absolute;
+  position: absolute;
 }
 
 .lb-drop {
- float: right;
+  float: right;
 }
 
 .lb-drop a:focus,
 .lb-drop a:hover {
- text-decoration: none;
+  text-decoration: none;
 }
 
 .lb-optionsbox {
- padding-left: 10px;
+  padding-left: 10px;
 }
 
 .lb-container {
- min-height: 100vh;
- margin: 0;
- border-radius: 0;
+  min-height: 100vh;
+  margin: 0;
+  border-radius: 0;
 }
 
 .lb-cointainer-fluid {
- padding-top: 50px;
+  padding-top: 50px;
 }
 
 .lb-ta {
- display: none;
+  display: none;
 }
 
 .lb-checkbox.checked .lb-indicator,
 .lb-checkbox-es2015.checked .lb-indicator {
- background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'> <path fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z' /> </svg>");
- background-size: 80%;
- background-repeat: no-repeat;
- background-position: center;
+  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'> <path fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z' /> </svg>");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .lb-checkbox .lb-indicator,
 .lb-checkbox-es2015 .lb-indicator {
- color: #fff;
- background-color: #62a8e6;
- height: 12px;
- width: 12px;
+  color: #fff;
+  background-color: #62a8e6;
+  height: 12px;
+  width: 12px;
 }
 
 .cm-topminify {
- left: 88px;
- border-radius: 6px;
- position: absolute;
- top: 7px;
+  left: 88px;
+  border-radius: 6px;
+  position: absolute;
+  top: 7px;
 }
 
 .cm-topminify-es2015 {
- left: 215px;
- border-radius: 6px;
- position: absolute;
- top: 7px;
+  left: 215px;
+  border-radius: 6px;
+  position: absolute;
+  top: 7px;
 }
 
 .cm-topminify .custom-control.custom-checkbox.custom-control-inline label.custom-control-label,
 .cm-topminify-es2015 .custom-control.custom-checkbox.custom-control-inline label.custom-control-label {
- font-size: 14px;
+  font-size: 14px;
 }
 
 .cm-topminify label.custom-control-label::before,
 .cm-topminify-es2015 label.custom-control-label::before {
- border-radius: 0;
+  border-radius: 0;
 }
 
 .cm-topminify label.custom-control-label::before,
 .cm-topminify-es2015 label.custom-control-label::before {
- position: absolute;
- top: 5px;
- left: -18px;
- display: block;
- width: 12px;
- height: 12px;
- pointer-events: none;
- content: "";
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- background-color: #62a8e6;
+  position: absolute;
+  top: 5px;
+  left: -18px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  content: "";
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #62a8e6;
 }
 
 .cm-topminify label.custom-control-label::after,
 .cm-topminify-es2015 label.custom-control-label::after {
- position: absolute;
- top: 3px;
- left: -20px;
- display: block;
- width: 16px;
- height: 16px;
- content: "";
- background-repeat: no-repeat;
- background-position: center center;
- background-size: 65% 65%;
+  position: absolute;
+  top: 3px;
+  left: -20px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 65% 65%;
 }
 
 .cm-topminify:hover,
 .cm-topminify-es2015:hover {
- cursor: pointer;
- text-align: right;
+  cursor: pointer;
+  text-align: right;
 }
 
 .page-enter-active,
 .page-leave-active {
- transition: opacity .4s
+  transition: opacity .4s;
 }
 
 .page-enter,
 .page-leave-active {
- opacity: 0
+  opacity: 0;
 }
 
 .header_section {
-  background: #333 url('~assets/images/big.jpg') 50%;
+  background: #333 url("~assets/images/big.jpg") 50%;
   background-size: cover;
   text-align: center;
-  padding: 140px 0 80px 0;
+  padding: 140px 0 80px;
   min-height: 400px;
 }
 
@@ -164,7 +164,7 @@ body {
   color: #f5da55;
   font-size: 2.2em;
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -.02em;
   margin-bottom: 100px;
 }
 
@@ -174,7 +174,7 @@ body {
   }
 }
 .header_section .btn-outline-warning {
-  color: #ffffff;
+  color: #fff;
   background-color: transparent;
   background-image: none;
   border-color: #f5da55;
@@ -197,14 +197,14 @@ body {
 }
 .footer {
   border-top: 1px solid #e8e8e8;
-    padding: 30px 0;
-    text-align: center;
+  padding: 30px 0;
+  text-align: center;
 }
 .navbar {
-border-bottom: 2px solid #f5da55;
+  border-bottom: 2px solid #f5da55;
 }
 .navbar-default {
-  background-color:#323330;
+  background-color: #323330;
 }
 
 .navbar-default .navbar-nav .nav-link{
@@ -214,7 +214,7 @@ border-bottom: 2px solid #f5da55;
 }
 
 .logo {
-  background: url('~assets/images/lebab-logogold.png') no-repeat center;
+  background: url("~assets/images/lebab-logogold.png") no-repeat center;
   background-size: auto 46px;
   width: 60px;
   height: 50px;
@@ -230,7 +230,7 @@ border-bottom: 2px solid #f5da55;
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: 15px;
   font-size: 18px;
   line-height: 20px;
   height: 50px;
