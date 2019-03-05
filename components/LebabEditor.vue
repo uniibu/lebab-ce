@@ -2,9 +2,9 @@
   <b-row>
     <b-col md="6">
       <div class="cm-topbar">
-        <div class="cm-topone"/>
-        <div class="cm-toptwo"/>
-        <div class="cm-topthree"/>
+        <div class="cm-topone" />
+        <div class="cm-toptwo" />
+        <div class="cm-topthree" />
         <div class="cm-topminify">
           <b-form-checkbox
             id="checkboxminify"
@@ -43,7 +43,7 @@
                 class="lb-optionsbox"
                 stacked
                 name="Optionssafe"
-                @input="toNewCode"/>
+                @input="toNewCode" />
             </b-form-group>
             <b-dropdown-header>Unsafe Transforms</b-dropdown-header>
             <b-form-group class="lb-optionsbox">
@@ -54,7 +54,7 @@
                 class="lb-optionsbox"
                 stacked
                 name="Optionsunsafe"
-                @input="toNewCode"/>
+                @input="toNewCode" />
             </b-form-group>
           </b-dropdown>
         </div>
@@ -64,20 +64,19 @@
         :options="cmOption"
         class="mb-4"
         @ready="toNewCode"
-        @input="toNewCode"/>
+        @input="toNewCode" />
     </b-col>
     <b-col md="6">
       <div class="cm-topbar">
-        <div class="cm-topone"/>
-        <div class="cm-toptwo"/>
-        <div class="cm-topthree"/>
+        <div class="cm-topone" />
+        <div class="cm-toptwo" />
+        <div class="cm-topthree" />
       </div>
 
       <codemirror
         v-model="newcode"
         :options="cmOption2"
-        class="mb-4"/>
-
+        class="mb-4" />
     </b-col>
   </b-row>
 </template>

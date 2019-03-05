@@ -8,14 +8,14 @@
         </b-col>
         <b-col md="6">
           <div class="cm-topbar">
-            <div class="cm-topone"/>
-            <div class="cm-toptwo"/>
-            <div class="cm-topthree"/>
+            <div class="cm-topone" />
+            <div class="cm-toptwo" />
+            <div class="cm-topthree" />
           </div>
           <codemirror
             v-model="defaultCode"
             :options="cmOption"
-            class="a"/>
+            class="a" />
         </b-col>
       </b-row>
     </b-container>

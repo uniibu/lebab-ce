@@ -3,7 +3,7 @@
     <b-container
       fluid
       class="lb-cointainer-fluid">
-      <lebab-editor/>
+      <lebab-editor />
     </b-container>
   </b-jumbotron>
 </template>

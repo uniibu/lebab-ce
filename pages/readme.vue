@@ -2,7 +2,7 @@
   <b-jumbotron class="lb-container">
     <b-container
       class="lb-cointainer-fluid">
-      <lebab-readme/>
+      <lebab-readme />
     </b-container>
   </b-jumbotron>
 </template>

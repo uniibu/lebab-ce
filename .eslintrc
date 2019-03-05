@@ -68,6 +68,14 @@
     "comma-spacing": "error",
     "arrow-spacing": "error",
     "arrow-body-style": "error",
-    "no-unused-vars": "error"
+    "no-unused-vars": "error",
+    "vue/no-v-html": "off",
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        "singleline": "never",
+        "multiline": "never"
+      }
+    ]
   }
 }

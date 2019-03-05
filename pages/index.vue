@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-section/>
-    <app-second-section/>
-    <app-third-section/>
+    <app-section />
+    <app-second-section />
+    <app-third-section />
   </div>
 </template>
 

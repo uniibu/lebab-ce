@@ -1,5 +1,5 @@
 <template>
-  <div v-html="$md.render(model)"/>
+  <div v-html="$md.render(model)" />
 </template>
 <script>
 export default {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-navbar/>
+    <app-navbar />
     <a href="https://github.com/uniibu/lebab-ce">
       <img
         class="fork-me"
@@ -9,8 +9,8 @@
         width="149"
         height="149">
     </a>
-    <nuxt/>
-    <app-footer/>
+    <nuxt />
+    <app-footer />
   </div>
 </template>
 <script>

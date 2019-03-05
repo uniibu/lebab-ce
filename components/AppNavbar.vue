@@ -5,11 +5,11 @@
     type="light"
     fixed="top">
     <b-container>
-      <b-navbar-toggle target="nav_collapse"/>
+      <b-navbar-toggle target="nav_collapse" />
 
       <b-navbar-brand
         class="logo"
-        to="/"/>
+        to="/" />
 
       <b-collapse
         id="nav_collapse"
@@ -17,15 +17,21 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item
-            to="/editor">Try It Live</b-nav-item>
+            to="/editor">
+            Try It Live
+          </b-nav-item>
           <b-nav-item
             rel="noopener"
             target="_blank"
-            href="https://github.com/lebab/lebab">Lebab</b-nav-item>
+            href="https://github.com/lebab/lebab">
+            Lebab
+          </b-nav-item>
           <b-nav-item
             rel="noopener"
             target="_blank"
-            href="https://github.com/lebab/lebab/issues">Issues</b-nav-item>
+            href="https://github.com/lebab/lebab/issues">
+            Issues
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
