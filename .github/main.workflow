@@ -1,17 +1,20 @@
-workflow "Deploy to GH Docs" {
+workflow "Deploy to Github Pages" {
   on = "push"
-  resolves = ["Deploy to Docs"]
+  resolves = ["Deploy to gh-pages"]
 }
 
-action "Deploy to Docs" {
+action "master branch only" {
+  uses = "actions/bin/filter@master"
+  args = "branch master"
+}
+
+action "Deploy to gh-pages" {
   uses = "JamesIves/github-pages-deploy-action@master"
   env = {
+    BRANCH = "gh-pages"
     BUILD_SCRIPT = "yarn && yarn build"
     FOLDER = "docs"
-    BASE_BRANCH = "master"
-    COMMIT_NAME = "uni sayo"
-    COMMIT_EMAIL = "unibtc@gmail.com"
-    BRANCH = "gh-pages"
   }
   secrets = ["ACCESS_TOKEN"]
+  needs = ["master branch only"]
 }
