@@ -21,7 +21,7 @@ $ npm install # Or yarn install
 $ npm run dev # Or yarn dev
 
 # build docs folder for production
-$ npm run generate # Or yarn generate
+$ npm run push # Or yarn push
 
 ```
 
