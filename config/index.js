@@ -1,4 +1,4 @@
-const babelUrl = 'https://gistcdn.githack.com/umdfied/60b10ac1ece9bf6fa16c672d8be22440/raw/b834a928249b77ee38ecfdcb85b96381055f2d11/babel-standalone.min.js';
+const babelUrl = 'https://cdn.staticaly.com/gist/umdfied/60b10ac1ece9bf6fa16c672d8be22440/raw/b834a928249b77ee38ecfdcb85b96381055f2d11/babel-standalone.min.js';
 export default {
   isDev: process.env.NODE_ENV === 'development',
   mode: 'spa',

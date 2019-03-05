@@ -56,4 +56,4 @@ export const state = () => ({
     'destruct-param',
     'includes'
   ]
-})
+});
