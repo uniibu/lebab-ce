@@ -33,6 +33,28 @@ const nuxtConfig = {
     dir: 'docs'
   },
   build: {
+    babel: {
+      presets({ isServer }) {
+        return [
+          [
+            "@nuxt/babel-preset-app",
+            {
+              buildTarget: isServer ? 'server' : 'client',
+              debug: false,
+              targets: {
+                chrome: '45',
+                opera: '32',
+                edge: '12',
+                firefox: '34',
+                safari: '9',
+                ios: '9',
+                android: '5'
+              }
+            }
+          ]
+        ]
+      }
+    },
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
