@@ -5,7 +5,7 @@
       <b-button
         size="lg"
         variant="outline-warning"
-        class="pl-5 pr-5"
+        class="pl-5 pr-5 mb-5 text-white bg-transparent"
         to="/readme">
         Read More
       </b-button>

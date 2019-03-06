@@ -2,7 +2,7 @@
   <b-navbar
     class="navbar-default"
     toggleable="md"
-    type="light"
+    type="dark"
     fixed="top">
     <b-container>
       <b-navbar-toggle target="nav_collapse" />
@@ -15,7 +15,7 @@
         id="nav_collapse"
         is-nav>
         <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
+        <b-navbar-nav class="ml-auto text-uppercase">
           <b-nav-item
             to="/editor">
             Try It Live
