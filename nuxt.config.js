@@ -1,11 +1,11 @@
 import conf from './config';
-import axios from 'axios';
+import fetch from 'node-fetch';
 import consola from 'consola';
 import fs from 'fs';
 
 const getLebab = async () => {
   consola.info('Fetching latest Lebab version');
-  const { data: { message: msg } } = await axios.get('https://umdfied.herokuapp.com/umdfied/lebab/latest');
+  const { message: msg } = await fetch('https://umdfied.herokuapp.com/umdfied/lebab/latest').then(r => r.json());
   if (!msg || !msg.url || !msg.semver) {
     throw new Error('Could not fetch lebab');
   }
@@ -35,24 +35,20 @@ const nuxtConfig = {
   build: {
     babel: {
       presets({ isServer }) {
-        return [
-          [
-            "@nuxt/babel-preset-app",
-            {
-              buildTarget: isServer ? 'server' : 'client',
-              debug: false,
-              targets: {
-                chrome: '45',
-                opera: '32',
-                edge: '12',
-                firefox: '34',
-                safari: '9',
-                ios: '9',
-                android: '5'
-              }
+        return [ [ '@nuxt/babel-preset-app',
+          {
+            buildTarget: isServer ? 'server' : 'client',
+            debug: false,
+            targets: {
+              chrome: '45',
+              opera: '32',
+              edge: '12',
+              firefox: '34',
+              safari: '9',
+              ios: '9',
+              android: '5'
             }
-          ]
-        ]
+          } ] ];
       }
     },
     extend(config, { isDev, isClient }) {

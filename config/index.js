@@ -13,8 +13,6 @@ export default {
     script: [ { src: babelUrl, body: true } ]
   },
   css: [ '~/assets/scss/style.scss' ],
-  modules: [
-    [ 'bootstrap-vue/nuxt', { css: false } ], '~/modules/markdownModule', '@nuxtjs/axios'
-  ],
-  plugins: [ { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false } ]
+  modules: [ [ 'bootstrap-vue/nuxt', { css: false } ], '~/modules/markdownModule' ],
+  plugins: [ { src: '~plugins/nuxt-codemirror-plugin.js', ssr: false }, { src: '~plugins/fetch.js', ssr: false } ]
 };
