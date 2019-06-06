@@ -17,10 +17,11 @@
     "lint": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.4.1",
     "bootstrap-vue": "^2.0.0-rc.13",
     "markdown-it": "^8.4.2",
-    "nuxt": "^2.4.5"
+    "node-fetch": "^2.6.0",
+    "nuxt": "^2.4.5",
+    "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

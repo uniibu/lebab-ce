@@ -9,7 +9,8 @@ export default {
     };
   },
   created(){
-    this.$axios.$get('https://cdn.staticaly.com/gh/lebab/lebab/master/README.md')
+    fetch('https://cdn.staticaly.com/gh/lebab/lebab/master/README.md')
+      .then(r => r.text())
       .then((res) => {
         res = res.replace(/http:/g, 'https:');
         this.model = res;
