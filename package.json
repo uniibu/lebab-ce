@@ -17,7 +17,7 @@
     "lint": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.13",
+    "bootstrap-vue": "^2.0.0-rc.23",
     "markdown-it": "^8.4.2",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
