@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.13",
-    "markdown-it": "^8.4.2",
+    "markdown-it": "^9.0.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
     "unfetch": "^4.1.0",
