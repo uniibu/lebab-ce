@@ -14,14 +14,17 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "analyze": "nuxt build -a",
-    "lint": "eslint --fix --ext .js,.vue ."
+    "lint": "eslint --fix --ext .js,.vue .",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.13",
     "markdown-it": "^8.4.2",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
-    "unfetch": "^4.1.0"
+    "unfetch": "^4.1.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
@@ -39,5 +42,6 @@
   "bugs": {
     "url": "https://github.com/uniibu/lebab-ce/issues"
   },
-  "homepage": "https://uniibu.github.io/lebab-ce"
+  "homepage": "https://uniibu.github.io/lebab-ce",
+  "snyk": true
 }
