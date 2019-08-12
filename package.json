@@ -24,7 +24,7 @@
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
     "unfetch": "^4.1.0",
-    "snyk": "^1.192.4"
+    "snyk": "^1.216.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
