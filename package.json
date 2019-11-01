@@ -1,6 +1,6 @@
 {
   "name": "lebabnuxt",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Nuxt.js project",
   "author": "Uni Sayo <unibtc@gmail.com>",
   "contributors": [
@@ -19,22 +19,23 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.13",
+    "bootstrap-vue": "^2.0.4",
     "markdown-it": "^9.0.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
     "unfetch": "^4.1.0",
-    "snyk": "^1.192.4"
+    "snyk": "^1.239.5"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "eslint": "^5.15.1",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.2.1",
+    "eslint-loader": "^3.0.2",
     "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.11.0",
     "rimraf": "^2.6.3",
     "sass-loader": "^8.0.0",
+
     "vue-codemirror": "^4.0.6"
   },
   "license": "MIT",
