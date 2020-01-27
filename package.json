@@ -19,7 +19,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.4",
+    "bootstrap-vue": "^2.3.0",
     "markdown-it": "^9.0.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.4.5",
