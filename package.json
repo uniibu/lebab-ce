@@ -33,7 +33,7 @@
     "eslint-loader": "^3.0.2",
     "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.11.0",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.2",
     "sass-loader": "^8.0.0",
 
     "vue-codemirror": "^4.0.6"
