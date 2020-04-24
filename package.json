@@ -32,7 +32,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-vue": "^5.2.3",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.0",
     "rimraf": "^2.6.3",
     "sass-loader": "^8.0.0",
 
