@@ -1390,6 +1390,14 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
+"@open-policy-agent/opa-wasm@git+https://github.com/open-policy-agent/npm-opa-wasm.git#f4a21fe6f4d70706f85106dc6ea867983747e040":
+  version "1.1.0"
+  uid f4a21fe6f4d70706f85106dc6ea867983747e040
+  resolved "git+https://github.com/open-policy-agent/npm-opa-wasm.git#f4a21fe6f4d70706f85106dc6ea867983747e040"
+  dependencies:
+    sprintf-js "^1.1.2"
+    utf8 "^3.0.0"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -9562,10 +9570,10 @@ snyk-go-plugin@1.16.4:
     tmp "0.2.1"
     tslib "^1.10.0"
 
-snyk-gradle-plugin@3.12.2:
-  version "3.12.2"
-  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-3.12.2.tgz#65bd0cf0d1a9ea87d4b0f5e3838958c02ab8361e"
-  integrity sha512-tooWdLxgX6uJnzpfeHQbRy097ZI/p7/kII9ECqEO11dqeZEW8zvVnmzy+93CiyAY9OtsSTjJaDLzMxy+y6odCA==
+snyk-gradle-plugin@3.12.3:
+  version "3.12.3"
+  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-3.12.3.tgz#1c9bfe4273d8bc579b27004a10f68a40cafb3fd0"
+  integrity sha512-1LdlB/tDGqeeh5xgJYmv2Rw9eeYsbZ9VX9MS+u6V/DwdzbiXZvFeqexdCqwVOKwBtYUeQfg/QXm5AAd0hQwxCA==
   dependencies:
     "@snyk/cli-interface" "2.9.1"
     "@snyk/dep-graph" "^1.19.4"
@@ -9759,10 +9767,11 @@ snyk-try-require@1.3.1, snyk-try-require@^1.1.1, snyk-try-require@^1.3.1:
     then-fs "^2.0.0"
 
 snyk@^1.239.5:
-  version "1.440.3"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.440.3.tgz#99dfa36d4cd37f5ef6089bf73de59c12148fcf24"
-  integrity sha512-Jgt4oineLIk1nQeC732kIwI9G1Bmw93gNBrKYxeVRKqI80eqHwzv+4kODUL7d6t+xDqlwG+FijIBD7gli7eOYA==
+  version "1.441.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.441.0.tgz#fc4c4d1aa574d48da85d2ba12b95d7002f5a7060"
+  integrity sha512-eMiggcjoGuV9rhg7nHdhb7e1JUAvOCz+nWo/+5wpmU6C22RBDqpkktvrdRbKO816exJr1rFLPRSqbzN1efyjnA==
   dependencies:
+    "@open-policy-agent/opa-wasm" "git+https://github.com/open-policy-agent/npm-opa-wasm.git#f4a21fe6f4d70706f85106dc6ea867983747e040"
     "@snyk/cli-interface" "2.11.0"
     "@snyk/dep-graph" "1.21.0"
     "@snyk/gemfile" "1.2.0"
@@ -9789,7 +9798,7 @@ snyk@^1.239.5:
     snyk-cpp-plugin "2.2.1"
     snyk-docker-plugin "4.13.1"
     snyk-go-plugin "1.16.4"
-    snyk-gradle-plugin "3.12.2"
+    snyk-gradle-plugin "3.12.3"
     snyk-module "3.1.0"
     snyk-mvn-plugin "2.25.1"
     snyk-nodejs-lockfile-parser "1.30.1"
@@ -9932,6 +9941,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
   dependencies:
     extend-shallow "^3.0.0"
+
+sprintf-js@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
+  integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
 
 sprintf-js@~1.0.2:
   version "1.0.3"
@@ -10836,6 +10850,11 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==
+
+utf8@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/utf8/-/utf8-3.0.0.tgz#f052eed1364d696e769ef058b183df88c87f69d1"
+  integrity sha512-E8VjFIQ/TyQgp+TZfS6l8yp/xWppSAHzidGiRrqe4bK4XP9pTRyKFgGJpO3SN7zdX4DeomTrwaseCHovfpFcqQ==
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
