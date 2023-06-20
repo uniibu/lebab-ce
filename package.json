@@ -22,9 +22,9 @@
     "bootstrap-vue": "^2.0.4",
     "markdown-it": "^10.0.0",
     "node-fetch": "^2.6.0",
-    "nuxt": "^2.4.5",
+    "nuxt": "^2.15.0",
     "unfetch": "^4.1.0",
-    "snyk": "^1.239.5"
+    "snyk": "^1.685.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
